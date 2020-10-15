@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Chore.belongsTo(models.Parent)
+      Chore.belongsTo(models.Child)
     }
   };
   Chore.init({

@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Parent.hasMany(models.Chore)
+      Parent.hasMany(models.Child)
     }
   };
   Parent.init({

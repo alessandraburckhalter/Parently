@@ -1,0 +1,123 @@
+*{ 
+    margin: 0;
+    padding: 0;
+}
+
+body{
+
+    font-family: san-serif;
+background-color: #ffffff;
+
+}
+
+.navbar-toggler  {
+    outline: none !important;
+    padding: 0;
+}
+.navbar-toggler img{
+    width: 35px;
+   
+}
+.navbar-brand {
+    text-decoration: none !important;
+    color: #E0607E;
+    font-weight: 800;
+    font-size: 40px !important;
+    
+}
+.navbar-brand:hover {
+    text-decoration: none !important;
+    color: #E0607E;
+    font-weight: 800;
+    font-size: 40px !important;
+    
+}
+
+.nav-link{
+    color:rgb(254, 236, 241);
+    font-weight: 600;
+    margin-left: 30px;
+    background: #CE5374;
+    border-radius: 20px;
+    padding: 10px 20px;
+   
+}
+
+.wrapper{
+
+    margin: 50px auto;
+    border-radius: 10px;
+    padding-top: 50px;
+    padding-top: 50px;
+    box-shadow: 0 0 40px 2px rgba(206, 83, 116, 0.173);
+}
+
+.feature-box{
+    padding: 30px;
+
+}
+
+.feature-box h1{
+    margin-top: 20%;
+    color: #E0607E;
+}
+
+.feature-box p{
+    margin: 50px auto;
+    color: #CE5374;
+}
+
+/* .feature-box a {
+    text-decoration: none !important;
+    background: #CE5374;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-right: 30px;
+    border: 2px solid #CE5374;
+    color: white;
+}
+
+.btn-1:hover{
+    color: white;
+}
+
+.btn-2{
+    background: none !important;
+    color: #CE5374 !important;
+} */
+.feature-img{
+    width: 100%;
+    padding: 40px;
+
+}
+
+.waves svg{
+    position: absolute;
+    width: 100%;
+    bottom: -35px;
+    left: 0;
+    animation-name: move-left;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    z-index: -1;
+  }
+  .spacer{
+    height: 100px;
+    width: 100%;
+  }
+  
+  @keyframes example {
+    0%   {
+      left:0px;
+      top:0px;}
+    
+    50%  {
+      left:-2000px;
+      top:200px;}
+    
+    100% {
+      left:0px; 
+      top:0px;}
+  }
+  

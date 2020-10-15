@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt')
 
 //Login Route
 router.get('/', (req, res) => {
-    res.render('login', {
+    res.render('parent-login', {
         locals: {
             error: null
         }
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     if (!req.body.email || !req.body.password) {
-        res.render('login', {
+        res.render('parent-login', {
             locals: {
                 error: 'Please submit all required field'
             }
@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
 
                 if (matched) {
                     req.session.user = user
-                    res.redirect('/home')
+                    res.redirect('/kids')
                 } else {
                     res.render('login', {
                         locals: {

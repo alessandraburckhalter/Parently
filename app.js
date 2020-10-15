@@ -12,6 +12,7 @@ const bcrypt = require('bcrypt')
 const registerRouter = require('./routes/register')
 const loginRouter = require('./routes/login')
 const apiRouter = require('./routes/api')
+const childRouter = require('./routes/childlogin')
 const app = express();
 
 app.use(bodyParser.json());
@@ -43,7 +44,7 @@ app.set('view engine', 'html'); // set the view engine to use the 'html' views
 
 //Practice Home Route
 app.get('/',(req,res) => {
-  res.render('index',{
+  res.render('home',{
     locals: {
       error: null,
     }
@@ -60,6 +61,7 @@ app.get('/home', (req,res) => {
 
 // Register
 app.use('/register', registerRouter)
+app.use('/login', loginRouter)
 app.use('/api', apiRouter)
 
 //Check Auth
@@ -74,46 +76,7 @@ function checkAuth(req, res, next) {
 //login
 app.use('/login',loginRouter )
 // damn kids login
-app.get('/kids', (req,res) => {
-  res.render('kids', {
-    locals: {
-      error: null
-    }
-  })
-})
-//register kids
-app.post('/kids', (req,res) => {
-  if(!req.body.first_name ||  !req.body.password){
-    res.render('kids', {
-      locals: {
-        error: 'Please complete all fields'
-      }
-    })
-    console.log('Nope')
-    return;
-  }
-
-
-  const { user_name, first_name, last_name, password } = req.body
-    bcrypt.hash(password, 10, (err,hash) => {
-
-      db.Child.create({
-        first_name: first_name,
-        last_name: last_name,
-        user_name: user_name,
-        password: hash,
-        ParentId: req.session.user.id
-        
-      })
-      .then((result) => {
-        res.redirect('/home')
-      })
-
-    })
-
-
-
-})
+app.use('/kids', childRouter)
 
 
 

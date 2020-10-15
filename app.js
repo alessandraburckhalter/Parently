@@ -10,6 +10,8 @@ const cookieParser = require('cookie-parser')
 const es6Renderer = require('express-es6-template-engine')
 const bcrypt = require('bcrypt')
 const registerRouter = require('./routes/register')
+const loginRouter = require('./routes/login')
+const apiRouter = require('./routes/api')
 const app = express();
 
 app.use(bodyParser.json());
@@ -47,7 +49,7 @@ app.get('/',(req,res) => {
     }
   })
 })
-//render home
+//Render home
 app.get('/home', (req,res) => {
   res.render('home', {
     locals: {
@@ -55,71 +57,63 @@ app.get('/home', (req,res) => {
     }
   })
 })
-//Login Route
-app.get('/login',(req,res) => {
-  res.render('login', {
-    locals: {
-      error: null
-    }
-  })
-})
-// Practice Register
+
+// Register
 app.use('/register', registerRouter)
+app.use('/api', apiRouter)
 
 //Check Auth
 function checkAuth(req, res, next) {
   if (req.session.parent) {
     next();
   } else {
+    console.log('nope')
     res.redirect('/login')
   }
 }
-
 //login
-app.post('/login', (req,res) => {
-  if (!req.body.email || !req.body.password) {
-    res.render('login', {
+app.use('/login',loginRouter )
+// damn kids login
+app.get('/kids', (req,res) => {
+  res.render('kids', {
+    locals: {
+      error: null
+    }
+  })
+})
+//register kids
+app.post('/kids', (req,res) => {
+  if(!req.body.first_name ||  !req.body.password){
+    res.render('kids', {
       locals: {
-        error: 'Please submit all required field'
+        error: 'Please complete all fields'
       }
     })
+    console.log('Nope')
     return;
   }
 
-  db.Parent.findOne({
-    where: {
-      email: req.body.email
-    }
-  })
-    .then((user) => {
-      if(!user) {
-        res.render('login', {
-          locals: {
-            error: 'No account with that email'
-          }
-        })
-        return;
-      }
-      
-      bcrypt.compare(req.body.password, user.password, (err, matched) => {
 
-        if(matched) {
-          req.session.user = user
-          res.redirect('/home')
-        } else {
-          res.render('login', {
-            locals: {
-              error: 'Incorrect password'
-            }
-          })
-          return;
-        }
-        return;
+  const { user_name, first_name, last_name, password } = req.body
+    bcrypt.hash(password, 10, (err,hash) => {
+
+      db.Child.create({
+        first_name: first_name,
+        last_name: last_name,
+        user_name: user_name,
+        password: hash,
+        ParentId: req.session.user.id
+        
       })
+      .then((result) => {
+        res.redirect('/home')
+      })
+
     })
+
+
+
 })
-
-
 
 
 

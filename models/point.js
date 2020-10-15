@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Point.belongsTo(models.Chore)
-      Point.belongsTo(models.Children)
+      Point.belongsTo(models.Child)
     }
   };
   Point.init({

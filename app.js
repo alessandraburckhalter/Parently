@@ -24,6 +24,13 @@ app.use(
   }))
   
   store.sync();
+  //middleware to show logins
+  app.use((req, res, next) => {
+  console.log('===== USER =====')
+  console.log(req.session.user);
+  console.log('========')
+  next();
+})
   
 // view engine setup
 app.use(express.static('./public'));
@@ -40,8 +47,79 @@ app.get('/',(req,res) => {
     }
   })
 })
+//render home
+app.get('/home', (req,res) => {
+  res.render('home', {
+    locals: {
+      error: null
+    }
+  })
+})
+//Login Route
+app.get('/login',(req,res) => {
+  res.render('login', {
+    locals: {
+      error: null
+    }
+  })
+})
 // Practice Register
 app.use('/register', registerRouter)
+
+//Check Auth
+function checkAuth(req, res, next) {
+  if (req.session.parent) {
+    next();
+  } else {
+    res.redirect('/login')
+  }
+}
+
+//login
+app.post('/login', (req,res) => {
+  if (!req.body.email || !req.body.password) {
+    res.render('login', {
+      locals: {
+        error: 'Please submit all required field'
+      }
+    })
+    return;
+  }
+
+  db.Parent.findOne({
+    where: {
+      email: req.body.email
+    }
+  })
+    .then((user) => {
+      if(!user) {
+        res.render('login', {
+          locals: {
+            error: 'No account with that email'
+          }
+        })
+        return;
+      }
+      
+      bcrypt.compare(req.body.password, user.password, (err, matched) => {
+
+        if(matched) {
+          req.session.user = user
+          res.redirect('/home')
+        } else {
+          res.render('login', {
+            locals: {
+              error: 'Incorrect password'
+            }
+          })
+          return;
+        }
+        return;
+      })
+    })
+})
+
+
 
 
 

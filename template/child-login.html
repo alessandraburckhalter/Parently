@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Parently</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body style="background: linear-gradient(to right, #48baf9,#30bf8a);">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <img src="./images/menu.png" alt="Drop down menu">
+        </button> -->
+        <h1 class="title">PARENTLY</h1>
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Child Login</h5>
+            <form class="form-signin">
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+              </div>
+
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Remember password</label>
+              </div>
+              <button class="btn btn-lg btn-info btn-block text-uppercase" id='submit' type="submit">Sign in</button>
+              
+              <hr class="my-4">
+              <a class="btn btn-block text-uppercase" id="submit2" href="#">Child Sign Up</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="waves">
+    <svg width="100%" height="200px" fill="none" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#fff" />
+        <stop offset="50%" stop-color="#fff" />
+        <stop offset="100%" stop-color="#fff" />
+      </linearGradient>
+      <path 
+        fill="url(#grad1)" 
+        d="
+          M0 67
+          C 273,183
+            822,-40
+            1920.00,106 
+          
+          V 359 
+          H 0 
+          V 67
+          Z">
+        <animate 
+          repeatCount="indefinite" 
+          fill="url(#grad1)" 
+          attributeName="d" 
+          dur="15s"
+          attributeType="XML"
+          values="
+            M0 77 
+            C 473,283
+              822,-40
+              1920,116 
+            
+            V 359 
+            H 0 
+            V 67 
+            Z; 
+
+            M0 77 
+            C 473,-40
+              1222,283
+              1920,136 
+            
+            V 359 
+            H 0 
+            V 67 
+            Z; 
+
+            M0 77 
+            C 973,260
+              1722,-53
+              1920,120 
+            
+            V 359 
+            H 0 
+            V 67 
+            Z; 
+
+            M0 77 
+            C 473,283
+              822,-40
+              1920,116 
+            
+            V 359 
+            H 0 
+            V 67 
+            Z
+            ">
+        </animate>
+      </path>
+    </svg>
+  </div>
+  <!-- <script>
+    window.onload = function () {
+      const btn1 = document.getElementById("submit")
+      btn1.style.backgroundColor = "#30bf8a";
+      btn1.onmouseover = function () {
+        this.style.backgroundColor = "#48baf9";
+      }
+      btn1.onmouseout = function () {
+        this.style.backgroundColor = "#30bf8a";
+      }
+    }
+  </script>
+  <script>
+    window.onload = function () {
+      const btn = document.getElementById("submit2")
+      btn.style.backgroundColor = "#30bf8a";
+      btn.onmouseover = function () {
+        this.style.backgroundColor = "#48baf9";
+      }
+      btn.onmouseout = function () {
+        this.style.backgroundColor = "#30bf8a";
+      }
+    }
+  </script> -->
+  <script>
+    const btn = document.getElementById("submit")
+    btn.onclick = function (e) {
+      e.preventDefault()
+      location.href = '#'
+    }
+  </script>
+  <script>
+    const btn2 = document.getElementById("submit2")
+    btn2.onclick =function(){
+    location.href = '#'
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+
+</html>

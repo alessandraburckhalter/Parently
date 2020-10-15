@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt')
 
 /* GET users listing. */
 router.get('/',(req,res) => {
-  res.render('register',{
+  res.render('parent-sign-up',{
     locals: {
       error: null,
     }
@@ -14,7 +14,7 @@ router.get('/',(req,res) => {
 //Practice Post Register Route
 router.post('/',(req,res) => {
   if(!req.body.email || !req.body.password){
-    res.render('register', {
+    res.render('parent-login', {
       locals: {
         error: 'Please complete all fields'
       }

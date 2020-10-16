@@ -13,6 +13,7 @@ const registerRouter = require('./routes/register')
 const loginRouter = require('./routes/login')
 const apiRouter = require('./routes/api')
 const childRouter = require('./routes/childlogin')
+const logoutRouter = require('./routes/logout')
 const app = express();
 
 app.use(bodyParser.json());
@@ -42,14 +43,7 @@ app.engine('html', es6Renderer); // use es6renderer for html view templates
 app.set('views', 'templates'); // look in the 'templates' folder for view templates
 app.set('view engine', 'html'); // set the view engine to use the 'html' views
 
-//Practice Home Route
-app.get('/',(req,res) => {
-  res.render('home',{
-    locals: {
-      error: null,
-    }
-  })
-})
+
 //Render home
 app.get('/home', (req,res) => {
   res.render('home', {
@@ -63,6 +57,8 @@ app.get('/home', (req,res) => {
 app.use('/register', registerRouter)
 app.use('/login', loginRouter)
 app.use('/api', apiRouter)
+app.use('/kids', childRouter)
+app.use('/logout',logoutRouter )
 
 //Check Auth
 function checkAuth(req, res, next) {
@@ -73,10 +69,55 @@ function checkAuth(req, res, next) {
     res.redirect('/login')
   }
 }
+
+
 //login
-app.use('/login',loginRouter )
-// damn kids login
-app.use('/kids', childRouter)
+app.get('/chores', (req,res) => {
+  res.render('choresTest', {
+    locals: {
+      error: null
+    }
+  })
+})
+
+//post chores
+app.post('/chores', (req,res) => {
+  if (!req.body || !req.body.name) {
+    res.render('choresTest', {
+        locals: {
+            error: 'Please complete all fields'
+        }
+    })
+    console.log('Nope')
+    return;
+}
+  const { name, complete, mon, tue, wed, thu, fri, sat, sun } = req.body
+  console.log(req.body)
+    db.Chore.create({
+      name: req.body.name,
+      complete: req.body.complete,
+      mon: req.body.mon,
+      tue: req.body.tue,
+      wed: req.body.wed,
+      thu: req.body.thu,
+      fri: req.body.fri,
+      sat: req.body.sat,
+      sun: req.body.sun,
+      ChildId: req.session.user.id
+    })
+      .then((result) => {
+        res.redirect('/chores')
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).json({ error: 'A Database Error has Occurred'})
+      })
+})
+
+
+
+
+
 
 
 

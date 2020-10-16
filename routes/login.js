@@ -41,8 +41,9 @@ router.post('/', (req, res) => {
             bcrypt.compare(req.body.password, user.password, (err, matched) => {
 
                 if (matched) {
+                    req.session.child = null
                     req.session.user = user
-                    res.redirect('/kids')
+                    res.redirect('/overview')
                 } else {
                     res.render('parent-login', {
                         locals: {

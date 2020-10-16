@@ -12,7 +12,8 @@ const bcrypt = require('bcrypt')
 const registerRouter = require('./routes/register')
 const loginRouter = require('./routes/login')
 const apiRouter = require('./routes/api')
-const childRouter = require('./routes/childlogin')
+const childRouter = require('./routes/childsignup')
+const childLoginRouter = require('./routes/childlogin')
 const logoutRouter = require('./routes/logout')
 const app = express();
 
@@ -45,7 +46,7 @@ app.set('view engine', 'html'); // set the view engine to use the 'html' views
 
 
 //Render home
-app.get('/home', (req,res) => {
+app.get('/', (req,res) => {
   res.render('home', {
     locals: {
       error: null
@@ -59,6 +60,7 @@ app.use('/login', loginRouter)
 app.use('/api', apiRouter)
 app.use('/kids', childRouter)
 app.use('/logout',logoutRouter )
+app.use('/child', childLoginRouter)
 
 //Check Auth
 function checkAuth(req, res, next) {
@@ -73,19 +75,39 @@ function checkAuth(req, res, next) {
 
 //login
 app.get('/chores', (req,res) => {
-  res.render('choresTest', {
+  res.render('child-dock', {
+    locals: {
+      error: null,
+      child: req.session.child
+    }
+  })
+})
+//overview page
+app.get('/overview', (req,res) => {
+  res.render('overview', {
     locals: {
       error: null
     }
   })
 })
 
+//parent manage page
+app.get('/manage',(req,res) => {
+  res.render('parentDock', {
+    locals: {
+      error: null,
+      kidId: req.query.kid
+    }
+  })
+})
+
 //post chores
-app.post('/chores', (req,res) => {
+app.post('/chores/:kid', (req,res) => {
   if (!req.body || !req.body.name) {
-    res.render('choresTest', {
+    res.render('child-dock', {
         locals: {
-            error: 'Please complete all fields'
+            error: 'Please complete all fields',
+            kidId: req.query.kid
         }
     })
     console.log('Nope')
@@ -103,10 +125,10 @@ app.post('/chores', (req,res) => {
       fri: req.body.fri,
       sat: req.body.sat,
       sun: req.body.sun,
-      ChildId: req.session.user.id
+      ChildId: req.params.kid
     })
       .then((result) => {
-        res.redirect('/chores')
+        res.redirect(`/manage/?kid=${req.params.kid}`)
       })
       .catch((error) => {
         console.error(error);

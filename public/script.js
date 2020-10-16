@@ -8,12 +8,16 @@ function getName(userName){
     return html;
 }
 
-function getChores(chores){
+function getChores(chore){
     const html = `
-    <li>${chores.name} </li>
-    `;
+    <li class="project__item">
+              <button class="project__link focus--box-shadow">
+                <h4 class="task">${chore.name}</h4>
+              </button>
+            </li>`;
     return html
 }
+
 
 
 axios.get('/api/kids')
@@ -34,13 +38,16 @@ axios.get('/api/parent')
 })
 
 
-axios.get('/api/child/6/chores')
+axios.get('/api/child/chores')
 .then((response) => {
-    const choreId = document.querySelector('.chorepost')
-    choreId.innerHTML = getChores(response.data)
+    const htmlArray = response.data.map((chore) => {
+        return getChore(chore)
+    })
+    const choreId = document.querySelector('#chores')
+    choreId.innerHTML= htmlArray.join('')
 })
 
-axios.post('/api/child/6/chores', {
+axios.post('/api/child/chores', {
     name: text,
 })
     .then((response) => {

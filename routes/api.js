@@ -21,6 +21,13 @@ router.get('/parent', function(req,res) {
       res.json(user)
     })
 } )
+// Get child
+router.get('/child/:id',((req,res) =>{
+  db.Child.findByPk(req.params.id)
+  .then((child) => {
+    res.json(child)
+  })
+}))
 
 // Get chores
 router.get('/child/:id/chores', function (req,res){
@@ -33,4 +40,19 @@ router.get('/child/:id/chores', function (req,res){
       res.json(chores)
     })
 })
+
+//Get chores for Logged in Child
+router.get('/child/chores', function (req,res) {
+  db.Chore.findAll({
+    where:{
+      ChildId: req.session.child.id
+    }
+  })
+    .then((chores)=> {
+      res.json(chores)
+    })
+})
+
+
+
 module.exports = router;

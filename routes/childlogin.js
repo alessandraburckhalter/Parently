@@ -4,48 +4,58 @@ const db = require('../models')
 const bcrypt = require('bcrypt')
 
 
-
-
-
+//Login Route
 router.get('/', (req, res) => {
-    res.render('child-sign-up', {
+    res.render('child-login', {
         locals: {
             error: null
         }
-    })
+    })  
 })
-//register kids
+
 router.post('/', (req, res) => {
-    if (!req.body.first_name || !req.body.password) {
-        res.render('kids', {
+    if (!req.body.user_name || !req.body.password) {
+        res.render('child-login', {
             locals: {
-                error: 'Please complete all fields'
+                error: 'Please submit all required field'
             }
         })
-        console.log('Nope')
         return;
     }
 
-
-    const { user_name, first_name, last_name, password } = req.body
-    bcrypt.hash(password, 10, (err, hash) => {
-
-        db.Child.create({
-            first_name: first_name,
-            last_name: last_name,
-            user_name: user_name,
-            password: hash,
-            ParentId: req.session.user.id
-
-        })
-            .then((result) => {
-                res.redirect('/home')
-            })
-
+    db.Child.findOne({
+        where: {
+            user_name: req.body.user_name
+        }
     })
+        .then((user) => {
+            if (!user) {
+                res.render('child-login', {
+                    locals: {
+                        error: 'No account with that email'
+                    }
+                })
+                return;
+            }
 
+            bcrypt.compare(req.body.password, user.password, (err, matched) => {
 
-
+                if (matched) {
+                    req.session.user = null
+                    req.session.child = user
+                    res.redirect('/chores')
+                } else {
+                    res.render('child-login', {
+                        locals: {
+                            error: 'Incorrect password'
+                        }
+                    })
+                    return;
+                }
+                return;
+            })
+        })
 })
+console.log('complete')
 
 module.exports = router

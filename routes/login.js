@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
     })
         .then((user) => {
             if (!user) {
-                res.render('login', {
+                res.render('parent-login', {
                     locals: {
                         error: 'No account with that email'
                     }
@@ -41,12 +41,13 @@ router.post('/', (req, res) => {
             bcrypt.compare(req.body.password, user.password, (err, matched) => {
 
                 if (matched) {
+                    req.session.child = null
                     req.session.user = user
-                    res.redirect('/kids')
+                    res.redirect('/overview')
                 } else {
-                    res.render('login', {
+                    res.render('parent-login', {
                         locals: {
-                            error: console.log('Incorrect password')
+                            error: 'Incorrect password'
                         }
                     })
                     return;

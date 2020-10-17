@@ -12,7 +12,9 @@ const bcrypt = require('bcrypt')
 const registerRouter = require('./routes/register')
 const loginRouter = require('./routes/login')
 const apiRouter = require('./routes/api')
-const childRouter = require('./routes/childlogin')
+const childRouter = require('./routes/childsignup')
+const childLoginRouter = require('./routes/childlogin')
+const logoutRouter = require('./routes/logout')
 const app = express();
 
 app.use(bodyParser.json());
@@ -42,16 +44,9 @@ app.engine('html', es6Renderer); // use es6renderer for html view templates
 app.set('views', 'templates'); // look in the 'templates' folder for view templates
 app.set('view engine', 'html'); // set the view engine to use the 'html' views
 
-//Practice Home Route
-app.get('/',(req,res) => {
-  res.render('home',{
-    locals: {
-      error: null,
-    }
-  })
-})
+
 //Render home
-app.get('/home', (req,res) => {
+app.get('/', (req,res) => {
   res.render('home', {
     locals: {
       error: null
@@ -63,6 +58,9 @@ app.get('/home', (req,res) => {
 app.use('/register', registerRouter)
 app.use('/login', loginRouter)
 app.use('/api', apiRouter)
+app.use('/kids', childRouter)
+app.use('/logout',logoutRouter )
+app.use('/child', childLoginRouter)
 
 //Check Auth
 function checkAuth(req, res, next) {
@@ -73,10 +71,75 @@ function checkAuth(req, res, next) {
     res.redirect('/login')
   }
 }
+
+
 //login
-app.use('/login',loginRouter )
-// damn kids login
-app.use('/kids', childRouter)
+app.get('/chores', (req,res) => {
+  res.render('child-dock', {
+    locals: {
+      error: null,
+      child: req.session.child
+    }
+  })
+})
+//overview page
+app.get('/overview', (req,res) => {
+  res.render('overview', {
+    locals: {
+      error: null
+    }
+  })
+})
+
+//parent manage page
+app.get('/manage',(req,res) => {
+  res.render('parentDock', {
+    locals: {
+      error: null,
+      kidId: req.query.kid
+    }
+  })
+})
+
+//post chores
+app.post('/chores/:kid', (req,res) => {
+  if (!req.body || !req.body.name) {
+    res.render('child-dock', {
+        locals: {
+            error: 'Please complete all fields',
+            kidId: req.query.kid
+        }
+    })
+    console.log('Nope')
+    return;
+}
+  const { name, complete, mon, tue, wed, thu, fri, sat, sun } = req.body
+  console.log(req.body)
+    db.Chore.create({
+      name: req.body.name,
+      complete: req.body.complete,
+      mon: req.body.mon,
+      tue: req.body.tue,
+      wed: req.body.wed,
+      thu: req.body.thu,
+      fri: req.body.fri,
+      sat: req.body.sat,
+      sun: req.body.sun,
+      ChildId: req.params.kid
+    })
+      .then((result) => {
+        res.redirect(`/manage/?kid=${req.params.kid}`)
+      })
+      .catch((error) => {
+        console.error(error);
+        res.status(500).json({ error: 'A Database Error has Occurred'})
+      })
+})
+
+
+
+
+
 
 
 

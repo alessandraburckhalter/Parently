@@ -23,13 +23,13 @@
           <div class="card-body">
             <h5 class="card-title text-center">Parent Login</h5>
 
-            <form class="form-signin">
+            <form class="form-signin" method="post">
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
               </div>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
 
               </div>
 
@@ -41,7 +41,7 @@
               
               <hr class="my-4">
 
-              <a class="btn btn-block text-uppercase" id="submit2" href="#">Parent Sign Up</a>
+              <a class="btn btn-block text-uppercase" id="submit2" href="/register">Parent Sign Up</a>
 
             </form>
           </div>

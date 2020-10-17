@@ -23,23 +23,23 @@
           <div class="card-body">
             <h5 class="card-title text-center">Child Sign Up</h5>
 
-            <form class="form-signin">
+            <form class="form-signin" method="post">
               <div class="form-label-group">
-                <input type="text" id="firstname" class="form-control" placeholder="First Name" required autofocus>
+                <input type="text" id="firstname" name="first_name" class="form-control" placeholder="First Name" required autofocus>
               </div>
               <div class="form-label-group">
-                <input type="text" id="lastname" class="form-control" placeholder="Last Name" required autofocus>
+                <input type="text" id="lastname" name="last_name" class="form-control" placeholder="Last Name" required autofocus>
               </div>
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <input type="userName" id="userName" name="user_name" class="form-control" placeholder="User Name" required autofocus>
               </div>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
               </div>
-              <div class="form-label-group">
+              <!-- <div class="form-label-group">
                 <input type="password" id="retype-password" class="form-control" placeholder="retype-password" required>
-              </div>
+              </div> -->
 
 
               <div class="custom-control custom-checkbox mb-3">

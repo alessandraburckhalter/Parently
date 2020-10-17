@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <!-- <link rel="stylesheet" href="normalize.css" /> -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/child-dock.css" />
   </head>
   <body>
     <div class="wrapper" style="background: linear-gradient(to right, #48baf9,#30bf8a);">
@@ -27,13 +27,13 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto text-right">
               <li class="nav-item">
-                <a class="nav-link-1" href="#">Home</a>
+                <a class="nav-link-1" href="/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link-1" href="#">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link-1" href="#">Sign Out</a>
+                <a class="nav-link-1" href="/logout">Sign Out</a>
               </li>
 
             </ul>
@@ -46,23 +46,9 @@
             <h1 class="section__subtitle">MONDAY</h1>
             
           </header>
-          <ul class="project">
-
-            <li class="project__item">
-              <button class="project__link focus--box-shadow">
-                <h4 class="task">Make Up Your Bed</h4>
-              </button>
-            </li>
-            <li class="project__item">
-              <button  class="project__link focus--box-shadow">
-                <h4 class="task">Make Up Your Bed</h4>
-              </button>
-            </li>
-            <li class="project__item">
-              <button class="project__link focus--box-shadow" >
-                <h4 class="task">Make Up Your Bed</h4>
-              </button>
-            </li>
+          <ul class="project" id="chores">
+            
+           
            
 
           </ul>
@@ -123,6 +109,11 @@ const task = document.querySelector('.project__item')
                 })
       
     </script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+    <script>
+      const id = ${child.id}
+    </script>
+    <script src="/childchores.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   </body>

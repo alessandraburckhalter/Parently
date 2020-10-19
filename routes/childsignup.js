@@ -39,7 +39,7 @@ router.post('/', (req, res) => {
 
         })
             .then((result) => {
-                res.redirect('/chores')
+                res.redirect('/overview')
             })
 
     })

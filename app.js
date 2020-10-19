@@ -94,7 +94,7 @@ app.get('/about-us', (req,res) => {
 
 //overview page
 app.get('/overview', (req,res) => {
-  res.render('overview', {
+  res.render('pick-child', {
     locals: {
       error: null
     }

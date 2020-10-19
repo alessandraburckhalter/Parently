@@ -1,7 +1,53 @@
-/* body {
-    /* background: linear-gradient(to right, #087E8B, #BFD7) ; 
-    } */
-    
+html, body {
+  position: relative;
+  overflow-x: hidden !important;
+  background: #9dc6a7;
+  margin-bottom: auto;
+  max-width: 100% !important;
+  padding: 0;
+}
+
+html {
+  height: 100vh; /* to keep footer at the bottom */
+  
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.nav-link {
+  color: #30bf8a;
+  background: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  text-decoration: none !important;
+  font-family:'Cinzel', serif !important;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.nav-link:hover{
+  color: white;
+  background-color: #30bf8a;
+  border: solid 1px #30bf8a;
+}
+
+.navbar-toggler img{
+  width: 35px;
+ 
+}
+
+#navbarToggle {
+  outline: none !important;
+  margin: 5px;
+}
+
+
+
+
     .card-signin {
         border: 0;
         border-radius: 1rem;
@@ -9,9 +55,11 @@
       }
       
       .card-signin .card-title {
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
         font-weight: 300;
-        font-size: 1.5rem;
+        font-size: 1.9rem;
+        font-family:'Cinzel', serif !important;
+        color: #48baf9;
       }
       
     
@@ -24,6 +72,10 @@
         color: white;
         
     }
+
+.row-card {
+  margin-bottom: 100px;
+}
     
       .card-signin .card-body {
         padding: 2rem;
@@ -95,7 +147,7 @@
           animation-name: move-left;
           animation-duration: 4s; 
           animation-direction: alternate;
-          z-index: -1;
+          z-index: 1;
           
         }
         .spacer{

@@ -1,0 +1,131 @@
+
+    
+    .card-signin {
+        border: 0;
+        border-radius: 1rem;
+        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.18);
+      }
+      
+      .card-signin .card-title {
+        margin-bottom: 2rem;
+        font-weight: 300;
+        font-size: 1.5rem;
+      }
+      
+    
+    
+     .title{
+         margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        font-weight: 700;
+        color: white;
+        
+    }
+    
+      .card-signin .card-body {
+        padding: 2rem;
+      }
+      
+      .form-signin {
+        width: 100%;
+      }
+      
+      .form-signin .btn {
+        font-size: 80%;
+        border-radius: 5rem;
+        letter-spacing: .1rem;
+        font-weight: bold;
+        padding: 1rem;
+        transition: all 0.2s;
+      }
+      
+      .form-label-group {
+        position: relative;
+        margin-bottom: 1rem;
+      }
+      
+      .form-label-group input {
+        height: auto;
+        border-radius: 2rem;
+      }
+      
+    
+      
+      .form-label-group>label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        margin-bottom: 0;
+        /* Override default `<label>` margin */
+        line-height: 1.5;
+        color: #495057;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+        transition: all .1s ease-in-out;
+      }
+      
+      #submit{
+          background-color: #48baf9;
+      }
+      #submit:hover{
+          background-color: white;
+          border: solid 2px #48baf9;
+          color: #48baf9;
+      }
+  
+    #submit2{
+          color: #48baf9 !important;
+      }
+      /* #submit2:hover{
+          background-color: white;
+          border: solid 2px #30bf8a;
+          color: #30bf8a;
+      }  */
+  
+      .waves svg{
+          position: absolute;
+          width: 100%;
+          bottom: -30;
+          left: 0;
+          animation-name: move-left;
+          animation-duration: 4s; 
+          animation-direction: alternate;
+          z-index: -1;
+          
+        }
+        .spacer{
+          height: 100px;
+          width: 100%;
+        }
+      
+        footer{
+            width: 100%;
+            
+        }
+        
+        @keyframes example {
+          0%   {
+            left:0px;
+            top:0px;
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.18)}
+          
+          50%  {
+            left:-2000px;
+            top:200px;
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.18)}
+          
+          100% {
+            left:0px; 
+            top:0px;
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.18)
+          }
+        }
+      
+        @media screen and (max-width: 768px) {
+          .waves  {
+            visibility: hidden;
+          }
+        }

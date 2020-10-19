@@ -27,7 +27,8 @@ axios.get(`/api/child/${id}/chores`)
 
 function displayName(user){
   const html = `
-  <h1>${user.first_name} ${user.last_name}</h1>
+  <h1>${user.first_name} ${user.last_name} </h1>
+
   `;
   const display = document.getElementById('display-name')
   display.innerHTML = html

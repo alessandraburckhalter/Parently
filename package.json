@@ -26,5 +26,18 @@
   },
   "devDependencies": {
     "sequelize-cli": "^6.2.0"
-  }
+  },
+  "description": "",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alessandraburckhalter/Full-Stack-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alessandraburckhalter/Full-Stack-Project/issues"
+  },
+  "homepage": "https://github.com/alessandraburckhalter/Full-Stack-Project#readme"
 }

@@ -20,8 +20,19 @@ axios.get(`/api/child/${id}/chores`)
     choreId.innerHTML= htmlArray.join('')
 })
 
+
+
+function displayName(user){
+  const html = `
+  <h1> Child logged in = ${user.first_name} ${user.last_name} </h1>
+  `;
+  const display = document.getElementById('display-name')
+  display.innerHTML = html
+  return html
+}
+
 axios.get(`/api/child/${id}`)
 .then((response) => {
-  console.log(response.data.first_name)
-
+  console.log(response.data)
+   return displayName(response.data)
 })

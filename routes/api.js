@@ -1,4 +1,5 @@
 var express = require('express');
+const { response } = require('../app');
 var router = express.Router();
 const db = require('../models')
 
@@ -53,6 +54,31 @@ router.get('/child/chores', function (req,res) {
     })
 })
 
-
+router.put('/chore/:id', (req,res) => {
+  
+  console.log(req.body)
+    db.Chore.findByPk(req.params.id)
+      .then((result) => {
+          result.name = req.body.name
+          result.complete = req.body.complete
+          result.mon = req.body.mon
+          result.tue = req.body.tue
+          result.wed = req.body.wed
+          result.thu = req.body.thu
+          result.fri = req.body.fri
+          result.sat = req.body.sat
+          result.sun = req.body.sun
+          return result.save();
+          
+      })
+      .then((response) => {
+        res.json()
+      })
+      
+      .catch((error) => {
+        console.error(error);
+        res.status(500).json({ error: 'A Database Error has Occurred'})
+      })
+})
 
 module.exports = router;

@@ -82,6 +82,16 @@ app.get('/chores', (req,res) => {
     }
   })
 })
+
+// about us page
+app.get('/about-us', (req,res) => {
+  res.render('about-us', {
+    locals: {
+      error: null
+    }
+  })
+})
+
 //overview page
 app.get('/overview', (req,res) => {
   res.render('overview', {

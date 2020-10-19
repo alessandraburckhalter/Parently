@@ -1,30 +1,73 @@
+@font-face {
+    font-family: KidsPlaceDemo-K70dX;
+    src: url(./font/KidsPlaceDemo-K70dX.ttf)
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html, body {
+    position: relative;
+    margin-bottom: auto;
+    max-width: 100% !important;
+  padding: 0;
+}
+
 html {
     font-size: 10px;
     font-family: "Robot";
+    height: 100vh;
 }
 
 body {
     overflow-x: hidden;
-    /* background: rgb(72,186,249); */
-    background: linear-gradient(90deg, rgba(72,186,249,1) 35%, rgba(48,191,138,1) 100%) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
+
+/* navbar */
+.nav-link {
+    color: #30bf8a;
+    background: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-decoration: none !important;
+    font-family:'Cinzel', serif !important;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  
+  .nav-link:hover{
+    color: white;
+    background-color: #30bf8a;
+    border: solid 1px #30bf8a;
+  }
+  
+  .navbar-toggler img{
+    width: 35px;
+  }
+  
+  #navbarToggle {
+    outline: none !important;
+    margin: 5px;
+  }
+
+/* any anchor tag */
 a {
     text-decoration: none;
     color: #fff;
 }
 
 section {
-    padding: 10rem 0;
-    background-color: #fff;
+    padding: 2rem 0;
 }
 
+/* title */
 .heading {
     text-decoration: uppercase;
     font-size: 3.5rem;
@@ -32,10 +75,13 @@ section {
     margin-right: -3px;
     margin-bottom: 5rem;
     text-align: center;
-    color: green;
+    color: white;
     position: relative;
+    font-family:'Cinzel', serif !important;
+    font-weight: 500;
 }
 
+/* under title */
 .heading::after {
     content: "";
     width: 10rem;
@@ -48,11 +94,13 @@ section {
     border-radius: 2rem;
 }
 
+/* cards */
 .card-wrapper {
     display: flex;
     align-items: center;
     align-content: center;
     flex-direction: column;
+    padding-bottom: 120px;
 }
 
 .card {
@@ -74,6 +122,7 @@ section {
     clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
 }
 
+/* profile picture */
 .profile-img {
     width: 15rem;
     height: 15rem;
@@ -81,21 +130,26 @@ section {
     border-radius: 50%;
     margin-top: -11rem;
     z-index: 999;
-    border: 1rem solid #ebeef8;
+    border: 1rem solid #30bf8a;
+    
 }
 
+/* name */
 .card h1 {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     color: #333;
     margin: 1.5rem 0;
+    font-family:'Cinzel', serif !important;
 }
 
+/* job title */
 .job-title {
     color: #777;
     font-size: 1.5rem;
     font-weight: 300;
 }
 
+/* about text */
 .about {
     font-size: 1.5rem;
     margin: 1.5rem 0;
@@ -104,6 +158,7 @@ section {
     color: #333;
 }
 
+/* contact button */
 .card .btn {
     padding: 1rem 2.5rem;
     background-color: #445ae3;
@@ -125,6 +180,7 @@ section {
     box-shadow: none;
 }
 
+/* social media icons */
 .social-media {
     width: 100%;
     list-style: none;
@@ -137,6 +193,7 @@ section {
 
 .social-media i {
     font-size: 3rem;
+    transition: color .5s;
 }
 
 .fa-linkedin-in{
@@ -150,6 +207,59 @@ section {
 .fa-envelope {
     color: black;
 }
+
+.fa-linkedin-in:hover,
+.fa-github:hover,
+.fa-envelope:hover {
+    color: #30bf8a;
+    transform: translateY(-2px);
+}
+
+/* wave */
+.waves svg{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    animation-name: move-left;
+    animation-duration: 4s; 
+    animation-direction: alternate;
+    z-index: 1;
+    
+  }
+  .spacer{
+    height: 100px;
+    width: 100%;
+  }
+
+  footer{
+      width: 100%;
+      
+  }
+  
+  @keyframes example {
+    0%   {
+      left:0px;
+      top:0px;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.18)}
+    
+    50%  {
+      left:-2000px;
+      top:200px;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.18)}
+    
+    100% {
+      left:0px; 
+      top:0px;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.18)
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .waves  {
+      visibility: hidden;
+    }
+  }
 
 @media screen and (min-width: 700px) {
     .card-wrapper {
@@ -174,18 +284,15 @@ section {
     }
 
     .card:nth-child(1) {
-        animation: fadeIn .5s 5s backwards;
+        animation: fadeIn .1s 1s backwards;
     }
 
     .card:nth-child(2) {
-        animation: fadeIn .5s 5s backwards;   
+        animation: fadeIn .1s 1s backwards;   
     }
 
     .card:nth-child(3) {
-        animation: fadeIn .5s 5s backwards;   
+        animation: fadeIn .1s 1s backwards;   
     }
 
-    .card:hover {
-        transform: scale(1.05);
-    }
 }

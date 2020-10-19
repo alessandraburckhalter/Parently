@@ -1,14 +1,4 @@
-// function getKid(kid){
-//     const html = `
-//     <h1> Hello ${parent.first_name} ${parent.last_name} <h1>
-//     <option value="name">${kid.first_name} ${kid.last_name}</option>`;
-//     return html
-
-
-
-
-
-// }
+// Create function  to display kid name and create href to link to Parent Dock for that child 
 function getKid(kid){
     const html = `
     <a href="/manage?kid=${kid.id}" style="color:black;">
@@ -17,7 +7,7 @@ function getKid(kid){
     return html
 }
 
-
+// Create function to display Parent full name
 function getParent(user){
     const html = `
     <h1> Hello ${user.first_name} ${user.last_name} </h1>` 
@@ -26,6 +16,7 @@ function getParent(user){
     return html
 }
 
+// GET data from API route folder for parent data
 axios.get('/api/parent')
     .then((response) => {
         console.log(response.data)
@@ -33,6 +24,7 @@ axios.get('/api/parent')
     })
 
 
+// Get route from API folder to display kid information
 axios.get('/api/kids')
 .then((response) => {
     console.log(response)

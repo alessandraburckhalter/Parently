@@ -15,6 +15,10 @@ const apiRouter = require('./routes/api')
 const childRouter = require('./routes/childsignup')
 const childLoginRouter = require('./routes/childlogin')
 const logoutRouter = require('./routes/logout')
+const aboutRouter = require('./routes/aboutus')
+const choreRouter = require('./routes/chores')
+const overviewRouter = require('./routes/overview')
+const manageRouter = require('./routes/manage')
 const app = express();
 
 app.use(bodyParser.json());
@@ -54,13 +58,17 @@ app.get('/', (req,res) => {
   })
 })
 
-// Register
+// Render Routes
 app.use('/register', registerRouter)
 app.use('/login', loginRouter)
 app.use('/api', apiRouter)
 app.use('/kids', childRouter)
 app.use('/logout',logoutRouter )
 app.use('/child', childLoginRouter)
+app.use('/about-us', aboutRouter)
+app.use('/chores', choreRouter)
+app.use('/overview', overviewRouter)
+app.use('/manage', manageRouter)
 
 //Check Auth
 function checkAuth(req, res, next) {
@@ -73,78 +81,10 @@ function checkAuth(req, res, next) {
 }
 
 
-//login
-app.get('/chores', (req,res) => {
-  res.render('child-dock', {
-    locals: {
-      error: null,
-      child: req.session.child
-    }
-  })
-})
 
-// about us page
-app.get('/about-us', (req,res) => {
-  res.render('about-us', {
-    locals: {
-      error: null
-    }
-  })
-})
 
-//overview page
-app.get('/overview', (req,res) => {
-  res.render('pick-child', {
-    locals: {
-      error: null
-    }
-  })
-})
 
-//parent manage page
-app.get('/manage',(req,res) => {
-  res.render('parentDock', {
-    locals: {
-      error: null,
-      kidId: req.query.kid
-    }
-  })
-})
 
-//post chores
-app.post('/chores/:kid', (req,res) => {
-  if (!req.body || !req.body.name) {
-    res.render('child-dock', {
-        locals: {
-            error: 'Please complete all fields',
-            kidId: req.query.kid
-        }
-    })
-    console.log('Nope')
-    return;
-}
-  const { name, complete, mon, tue, wed, thu, fri, sat, sun } = req.body
-  console.log(req.body)
-    db.Chore.create({
-      name: req.body.name,
-      complete: req.body.complete,
-      mon: req.body.mon,
-      tue: req.body.tue,
-      wed: req.body.wed,
-      thu: req.body.thu,
-      fri: req.body.fri,
-      sat: req.body.sat,
-      sun: req.body.sun,
-      ChildId: req.params.kid
-    })
-      .then((result) => {
-        res.redirect(`/manage/?kid=${req.params.kid}`)
-      })
-      .catch((error) => {
-        console.error(error);
-        res.status(500).json({ error: 'A Database Error has Occurred'})
-      })
-})
 
 
 

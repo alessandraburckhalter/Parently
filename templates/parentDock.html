@@ -14,7 +14,52 @@
 </head>
 
 <body style="background: linear-gradient(to right, #48baf9,#30bf8a)";>
-  <nav class="navbar navbar-expand-lg">
+  <div class="container menu">
+    <div class="row">
+      <div class="col-sm-12 ">
+
+  <nav class="navbar navbar-expand-md ">
+
+    <!--  Show this only on mobile to medium screens  -->
+      <a class="navbar-brand d-md-none " href="#"><img src="/images/logo3.png" alt=""></a>
+    
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-justify" fill="#fff" xmlns="http://www.w3.org/2000/svg">              <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/></svg>
+      </button>
+      
+    <!--  Use flexbox utility classes to change how the child elements are justified  -->
+      <div class="collapse navbar-collapse justify-content-between " id="navbarToggle">
+    
+        <ul class="navbar-nav navbar-center nav justify-content-center">
+          
+          <li class="nav-item px-5">
+            <a class="nav-link nav-link-1" href="/login">Parent Login</a>
+          </li>
+          <li class="nav-item px-5">
+            <a class="nav-link nav-link-1" href="/child">Child Login</a>
+          </li>
+        </ul>
+        
+        
+    <!--   Show this only lg screens and up   -->
+        <a class="navbar-brand d-none d-sm-block nav justify-content-center" href="#"><img class="img-responsive" src="/images/logo3.png" alt=""></a>
+        
+        <ul class="navbar-nav navbar-center nav justify-content-center">
+          <li class="nav-item px-5 ">
+            <a class="nav-link nav-link-1" href="/register">Sign Up</a>
+          </li>
+          <li class="nav-item px-5 ">
+            <a class="nav-link nav-link-1" href="/about-us">Creators</a>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+  </div>
+        
+</div>  
+</div>
+  <!-- <nav class="navbar navbar-expand-lg">
     <p class="navbar-brand"> CHORES</p>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +86,7 @@
 
       </ul>
     </div>
-  </nav>
+  </nav> -->
   <div class="wrapper" ">
 
     <main class="main">

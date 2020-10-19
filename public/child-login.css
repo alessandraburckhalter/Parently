@@ -31,6 +31,10 @@ html, body {
     font-weight: 600;
   }
   
+  .nav-item{
+    margin-bottom: 1rem;
+      }
+
   .nav-link:hover{
     color: white;
     background-color: #30bf8a;

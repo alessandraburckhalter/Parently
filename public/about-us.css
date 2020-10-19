@@ -51,6 +51,10 @@ body {
   .navbar-toggler img{
     width: 35px;
   }
+
+  .nav-item{
+    margin-bottom: 1rem;
+      }
   
   #navbarToggle {
     outline: none !important;

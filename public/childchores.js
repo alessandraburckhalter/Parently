@@ -1,15 +1,40 @@
+
+
+
 // Create function to grab chore and display in H4 tag
 function getChore(chore) {
+  //todo On Page loads check if chores are completed
+
   const html = `
     <li class="project__item">
               <button class="project__link focus--box-shadow">
                 <h4 class="task">${chore.name}</h4>
               </button>
-              <input type="checkbox" name="tue" id="tue">
+              <input type="checkbox" name="tue" id="tue" class="checkbox" data-id="${chore.id}" ${chore.Points.length?'checked':""}>
+              
               <label for="tue">Done</label> 
             </li>`;
   return html
 }
+
+// Create function that stores Points to dashboard
+function displayPointsDashBoard(data){
+
+  const html = `
+  <ul class="statistics">
+            <li class="statistics__entry">
+              <p class="statistics__entry-description" >Current Points</p>
+              <span class="statistics__entry-quantity">${data}</span>
+            </li>
+  </ul>`;
+            const renderPoints = document.getElementById('points')
+            renderPoints.innerHTML = html
+            return html
+            
+  
+} 
+
+
 
 
 
@@ -41,6 +66,7 @@ axios.get(`/api/child/${id}/chores`)
     choreId.innerHTML = htmlArray.join('')
   })
 
+// Axios to check child data and make sure route is connected
 axios.get(`/api/child/${id}`)
   .then((response) => {
     console.log(response.data.first_name)
@@ -62,6 +88,37 @@ axios.get(`/api/child/${id}`)
   .then((response) => {
     console.log(response.data)
     return displayName(response.data)
+  })
+
+
+const checkbox = document.querySelector('.checkbox')
+// Event Listener for checkbox
+document.addEventListener('change', (e) => {
+
+  //When clicked mark as checked and disabled
+  if(e.target.classList.contains('checkbox')){
+    if (e.target.checked){
+      console.log('clicked')
+      //Send req to server to create new (point) for chore
+      const choreId = e.target.dataset.id
+      axios
+        .post(`/api/chore/${choreId}/point`)
+        .then((result) => {
+          console.log('Point Added')
+        })
+  } else {
+      console.log('Not clicked')
+      e.target.checked = true
+    }
+  }
+})
+
+// Create route from api for points
+axios.get(`/api/child/${id}/point`)
+  .then((data) => {
+    console.log(data)
+    // Run display point function onto html
+    return displayPointsDashBoard(data.data)
   })
 
 

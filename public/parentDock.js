@@ -115,6 +115,7 @@ function displayName(user) {
   // store response data in parameter (user)
   const html = `<br>
   <h2>${user.first_name} ${user.last_name} </h2>
+
   `;
   const display = document.getElementById('display-name')
   display.innerHTML = html

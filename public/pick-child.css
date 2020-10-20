@@ -22,51 +22,153 @@
   
   html,
   body {
-    min-width: 320px;
+    position: relative;
     background-color: var(--athens-gray);
-    font-family: var(--font-roboto);
-    font-size: 16px;
-    color: var(--dune);
-    
+    margin-bottom: auto;
+    padding: 0;
+  }
+   
+  html {
+    height: 100vh; /* to keep footer at the bottom */
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* navbar */
+  .nav-link {
+    color: #30bf8a;
+    background: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    text-decoration: none !important;
+    font-family:'Cinzel', serif !important;
+    font-size: 15px;
+    font-weight: 600;
   }
   
+  .nav-link:hover{
+    color: white;
+    background-color: #30bf8a;
+    border: solid 1px #30bf8a;
+    text-decoration: none !important;
+  }
+  
+  #navbarToggle {
+    outline: none !important;
+    margin: 5px;
+  }
+  .nav-item{
+    margin-bottom: 1rem;
+      }
+  
+/* parents name */
+#parent {
+  font-family:'Cinzel', serif !important;
+}
+
+#parent h1 {
+  font-weight: 700;
+}
+
+.welcome {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.welcome::after{
+    content: "";
+    width: 10rem;
+    height: .5rem;
+    background-color: #45e19f;
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2rem;
+}
+
+/* childs name */
+#kids {
+  font-family:'Cinzel', serif !important;
+  color: #30bf8a;
+  font-size: 1.3rem;
+}
+
+#kids a {
+  color: #30bf8a;
+  font-weight: 600;
+}
+
+#kids a:hover {
+  text-decoration: underline;
+}
+
+
+
   ul,
   ol {
     list-style-type: none;
   }
   
-  h1 {
-    font-size: 2.4rem;
-  }
-  
-  svg,
-  img {
-    max-width: 100%;
-    max-height: 100%;
-  }
-  
-
-  
-  a {
-    text-decoration: none !important;
-    color: white;
-  }
-  a:hover {
-    text-decoration: underline !important;
-    color: white;
-
-  }
   
   
   
   button {
- 
     padding: 0.85rem;
     border: 0;
     color: var(--dune);
     cursor: pointer;
   }
   
+/* wave */
+.waves svg{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  animation-name: move-left;
+  animation-duration: 4s; 
+  animation-direction: alternate;
+  z-index: 1;
+  
+}
+.spacer{
+  height: 100px;
+  width: 100%;
+}
+
+footer{
+    width: 100%;
+    
+}
+
+@keyframes example {
+  0%   {
+    left:0px;
+    top:0px;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.18)}
+  
+  50%  {
+    left:-2000px;
+    top:200px;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.18)}
+  
+  100% {
+    left:0px; 
+    top:0px;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.18)
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .waves  {
+    visibility: hidden;
+  }
+}
   
   
   @media (max-width: 1800px) {
@@ -90,9 +192,7 @@
   }
   
 
-nav{
-  width: 100%;
-}
+
 
   /* Wrapper */
   
@@ -101,7 +201,7 @@ nav{
    justify-content: center;
    align-content: center;
     width: 100%;
-    min-height: 100vh;
+
   }
   
   @media (max-width: 992px) {
@@ -162,52 +262,7 @@ nav{
     }
   }
   
-  /* Nav */
-  .navbar-toggler  {
-    outline: none !important;
-    padding: 0;
-}
-.navbar-toggler img{
-    width: 35px;
-   
-}
-.navbar-brand {
-
-    color: white;
-    font-weight: 800;
-    font-size: 40px !important;
-    padding: 10px;
-    border-radius: 20px;
-    
-}
-.navbar-brand:hover  {
-    text-decoration: none !important;
-    color: white;
-    
-}
-
-.nav-link-1:hover{
-    color: #30bf8a;
-    background-color: white;
-
-}
-
-
-.nav-link-1{
-    color:white;
-    font-weight: 600;
-    margin-left: 30px;
-    border-radius: 20px;
-    padding: 10px 20px;
-    text-decoration: none !important;
-}
-.nav-link-2{
-    color:white;
-    font-weight: 600;
-    border-radius: 20px;
-    padding: 10px 20px;
-    text-decoration: none !important;
-}
+ 
   
 
   /* Aside */
@@ -216,7 +271,7 @@ nav{
     width: 30rem;
     background-color: rgba(255,255,255, 0.8);
     /* padding: 3.05rem 1.875rem; */
-    margin-top: 10% !important;
+    margin-top: 5% !important;
     margin-bottom: 10%;
     border-radius: 25px;
     box-shadow: 0 0 40px 2px rgba(57, 58, 60, 0.18) ;

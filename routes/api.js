@@ -61,6 +61,10 @@ router.get('/child/:id/chores', function (req, res) {
   .then((chores) => {
     res.json(chores)
   })
+  .catch((error) => {
+    console.error(error);
+      res.status(500).json({ error: 'A Database Error has Occurred' })
+  })
 })
 
 //Get Points
@@ -96,6 +100,10 @@ router.get('/child/:id/point', (req,res) => {
   .then((count) => {
     res.json(count)
   })
+  .catch((error) => {
+    console.error(error);
+      res.status(500).json({ error: 'A Database Error has Occurred' })
+  })
 })
 
 //Get chores 
@@ -107,6 +115,10 @@ router.get('/child/chores', function (req, res) {
   })
     .then((chores) => {
       res.json(chores)
+    })
+    .catch((error) => {
+      console.error(error);
+        res.status(500).json({ error: 'A Database Error has Occurred' })
     })
 })
 
@@ -190,6 +202,10 @@ router.post('/chore/:id/point', (req, res) => {
         })
           .then((result) => {
             res.status(201).json()
+          })
+          .catch((error) => {
+            console.error(error);
+              res.status(500).json({ error: 'A Database Error has Occurred' })
           })
       }
     })

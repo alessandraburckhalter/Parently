@@ -89,7 +89,7 @@ function getChore(chore) {
   return html
 }
 
-const id = new URLSearchParams(document.location.search).get("kid")
+const CHILD_ID = new URLSearchParams(document.location.search).get("kid")
 
 console.log('Hello World')
 
@@ -97,7 +97,7 @@ console.log('Hello World')
 updateChores();
 
 function updateChores(){
-  axios.get(`/api/child/${id}/chores`)
+  axios.get(`/api/child/${CHILD_ID}/chores`)
   .then((response) => {
     // Store array of chores to htmlArray
     const htmlArray = response.data.map((chore) => {
@@ -122,9 +122,30 @@ function displayName(user) {
   return html
 }
 
+//Create a Prize Save and Edit Button
+//todo Display Prize 
+function displayPrize(){
+  const html = `
+  <form action="/chores/${chore.id}" method="post" style="display:none;" id="form-edit-${chore.id}">
+
+  <label for="name">30 Points</label>
+  <input type="text" name="name" id="name" value="">
+  <label for="name">40 Points</label>
+  <input type="text" name="name" id="name" value="">
+  <label for="name">50 Points</label>
+  <input type="text" name="name" id="name" value="">
+  <button class="editPrize"> Edit </button>
+  <button class="savePrize"> Save </button>
+`;
+const display = document.getElementById('display-prize')
+display.innerHTML = html
+return html
+}
+//todo Display Prize 
+displayPrize();
 // GET displayName function and render onto HTML
   // GET from API route child with the signed in child id ${id}
-axios.get(`/api/child/${id}`)
+axios.get(`/api/child/${CHILD_ID}`)
   .then((response) => {
     // store data from api/child route into response.data
     console.log(response.data)
@@ -133,7 +154,7 @@ axios.get(`/api/child/${id}`)
   });
 
   //Get Points
-  axios.get(`/api/child/${id}/point`)
+  axios.get(`/api/child/${CHILD_ID}/point`)
   .then((data) => {
     console.log(data)
     return displayPointsDashBoard(data.data)
@@ -192,7 +213,7 @@ document.addEventListener('click', (e) => {
     })
     // when complete get updated list of chores
     .then((response) => {
-      axios.get(`/api/child/${id}/chores`)
+      axios.get(`/api/child/${CHILD_ID}/chores`)
   .then((response) => {
     const htmlArray = response.data.map((chore) => {
       return getChore(chore)

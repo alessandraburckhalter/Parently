@@ -31,6 +31,10 @@ html, body {
     font-weight: 600;
   }
   
+    .nav-link-1{
+      text-align: center;
+    }
+  
   .nav-item{
     margin-bottom: 1rem;
       }

@@ -19,23 +19,18 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
-  html,
-  body {
-    position: relative;
-    background-color: var(--athens-gray);
-    margin-bottom: auto;
-    padding: 0;
-  }
+ 
    
   html {
-    height: 100vh; /* to keep footer at the bottom */
+    height: 100vh !important; /* to keep footer at the bottom */
   }
 
+  /* stretches body to end of page */
   body {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+  position: relative;
   }
 
   /* navbar */
@@ -56,7 +51,9 @@
     border: solid 1px #30bf8a;
     text-decoration: none !important;
   }
-  
+
+  /* WELCOME MESSAGE */
+  /* for svg that appears at  */
   #navbarToggle {
     outline: none !important;
     margin: 5px;
@@ -89,13 +86,14 @@
     left: 50%;
     transform: translateX(-50%);
     border-radius: 2rem;
+    margin: 1rem;
 }
 
 /* childs name */
 #kids {
   font-family:'Cinzel', serif !important;
-  color: #30bf8a;
-  font-size: 1.3rem;
+  color: white;
+  font-size: 1.8rem;
 }
 
 #kids a {
@@ -126,7 +124,7 @@
   
 /* wave */
 .waves svg{
-  position: absolute;
+  position: relative;
   width: 100%;
   bottom: 0;
   left: 0;
@@ -141,35 +139,6 @@
   width: 100%;
 }
 
-footer{
-    width: 100%;
-    
-}
-
-@keyframes example {
-  0%   {
-    left:0px;
-    top:0px;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.18)}
-  
-  50%  {
-    left:-2000px;
-    top:200px;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.18)}
-  
-  100% {
-    left:0px; 
-    top:0px;
-    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.18)
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .waves  {
-    visibility: hidden;
-  }
-}
-  
   
   @media (max-width: 1800px) {
     h1 {
@@ -200,7 +169,7 @@ footer{
     display: flex;
    justify-content: center;
    align-content: center;
-    width: 100%;
+    width: 1fr;
 
   }
   
@@ -210,6 +179,9 @@ footer{
     }
   }
   
+  .firstName{
+    color: white !important;
+  }
   
   
   
@@ -268,9 +240,11 @@ footer{
   /* Aside */
   
   .aside {
-    width: 30rem;
+    width: 100%;
+    height: auto ;
+    order: 1;
+    padding: 2rem 1rem 4rem;
     background-color: rgba(255,255,255, 0.8);
-    /* padding: 3.05rem 1.875rem; */
     margin-top: 5% !important;
     margin-bottom: 10%;
     border-radius: 25px;
@@ -283,11 +257,11 @@ footer{
       width: 300px;
       padding: 2.5rem 1.5rem;
       margin: 20px;
-      height: 300px;
+      
     }
   } 
   
- @media (min-width: 1400px) {
+ /* @media (min-width: 1400px) {
     .aside {
         width: 30%;
         background-color: rgba(255,255,255, 0.8);
@@ -296,16 +270,16 @@ footer{
         margin-bottom: 10%;
         border-radius: 25px;
         box-shadow: 0 0 40px 2px rgba(57, 58, 60, 0.18) ;
-      }
-}
+      } */
+
  
-  @media (max-width: 992px) {
+  /* @media (max-width: 992px) {
     .aside {
       width: 100%;
       order: 1;
       padding: 2rem 1rem 4rem;
     }
-  } 
+  }  */
 
   .container{
     text-align: center;
@@ -319,13 +293,19 @@ footer{
     text-align: center;
   }
   
+.firstName{
+  z-index: 3;
+ 
+}
+
   .profile-main__setting {
     position: relative;
     max-width: 300px;
-    margin: 0 auto;
+    margin: 10px;
     padding: 0;
     border-radius: 50%;
     overflow: hidden;
+   
   }
   
   .profile-main__photo {
@@ -335,7 +315,9 @@ footer{
   
   @media (max-width: 1800px) {
     .profile-main__setting {
-      max-width: 250px;
+      display: flex;
+      align-content: center;
+      justify-content: center;
     }
   }
   
@@ -344,13 +326,22 @@ footer{
       margin-bottom: 4rem;
     }
   
-    .profile-main__setting {
+    /* .profile-main__setting {
       max-width: 225px;
-    }
+    } */
   }
+
+  .slides{
   
-  Statistics
-  
+    display: flex;
+   justify-content: center;
+   align-content: center;
+    width: 1fr;
+    flex-wrap: wrap;
+}
+
+  /* Statistics For Rewards and tasks don*/
+/*   
   .statistics {
     margin-bottom: 4rem;
   }
@@ -405,7 +396,7 @@ footer{
     .statistics__entry-quantity {
       font-size: 1.1rem;
     }
-  }
+  } */
   
 
 

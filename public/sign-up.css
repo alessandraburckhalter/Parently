@@ -1,3 +1,4 @@
+/* navbar */
 .nav-link {
   color: #30bf8a;
   background: white;
@@ -24,10 +25,9 @@
   outline: none !important;
   margin: 5px;
 }
-
-.navbar-brand img {
- 
-}
+.nav-item{
+  margin-bottom: 1rem;
+    }
     
     .card-signin {
         border: 0;

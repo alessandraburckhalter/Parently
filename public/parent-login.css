@@ -45,7 +45,9 @@ body {
   margin: 5px;
 }
 
-
+.nav-item{
+  margin-bottom: 1rem;
+    }
 
 
     .card-signin {

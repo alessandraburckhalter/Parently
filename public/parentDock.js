@@ -113,8 +113,9 @@ function updateChores(){
 // Create function to display first name and last name
 function displayName(user) {
   // store response data in parameter (user)
-  const html = `
-  <h1>${user.first_name} ${user.last_name}</h1>
+  const html = `<br>
+  <h2>${user.first_name} ${user.last_name} </h2>
+
   `;
   const display = document.getElementById('display-name')
   display.innerHTML = html

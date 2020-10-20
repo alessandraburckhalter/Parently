@@ -9,45 +9,95 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
   <!-- <link rel="stylesheet" href="normalize.css" /> -->
   <link rel="stylesheet" href="/child-dock.css" />
 </head>
 
-<body>
-  <div class="wrapper" style="background: linear-gradient(to right, #48baf9,#30bf8a);">
+<body style="background: linear-gradient(to right, #48baf9,#30bf8a)";>
+  <div class="container menu">
+    <div class="row">
+      <div class="col-sm-12 ">
+
+  <nav class="navbar navbar-expand-md ">
+
+    <!--  Show this only on mobile to medium screens  -->
+      <a class="navbar-brand d-md-none " href="#"><img src="/images/logo3.png" alt=""></a>
+    
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-justify" fill="#fff" xmlns="http://www.w3.org/2000/svg">              <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/></svg>
+      </button>
+      
+    <!--  Use flexbox utility classes to change how the child elements are justified  -->
+      <div class="collapse navbar-collapse justify-content-between " id="navbarToggle">
+    
+        <ul class="navbar-nav navbar-center nav justify-content-center">
+          
+          <li class="nav-item px-5">
+            <a class="nav-link nav-link-1" href="/login">Parent Login</a>
+          </li>
+          <li class="nav-item px-5">
+            <a class="nav-link nav-link-1" href="/child">Child Login</a>
+          </li>
+        </ul>
+        
+        
+    <!--   Show this only lg screens and up   -->
+        <a class="navbar-brand d-none d-sm-block nav justify-content-center" href="#"><img class="img-responsive" src="/images/logo3.png" alt=""></a>
+        
+        <ul class="navbar-nav navbar-center nav justify-content-center">
+          <li class="nav-item px-5 ">
+            <a class="nav-link nav-link-1" href="/register">Sign Up</a>
+          </li>
+          <li class="nav-item px-5 ">
+            <a class="nav-link nav-link-1" href="/about-us">Creators</a>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+  </div>
+        
+</div>  
+</div>
+  <!-- <nav class="navbar navbar-expand-lg">
+    <p class="navbar-brand"> CHORES</p>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-justify" fill="white"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
+      </svg>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto text-right">
+        <li class="nav-item">
+          <a class="nav-link-1" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link-1" href="/about-us">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link-1" href="/api/kids">kids</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link-1" href="/logout">Sign Out</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav> -->
+  <div class="wrapper" >
 
     <main class="main">
-      <nav class="navbar navbar-expand-lg">
-        <p class="navbar-brand"> CHORES</p>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-justify" fill="white"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-              d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
-          </svg>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto text-right">
-            <li class="nav-item">
-              <a class="nav-link-1" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link-1" href="#">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link-1" href="/logout">Sign Out</a>
-            </li>
-
-          </ul>
-        </div>
-      </nav>
+     
       <section class="section container">
 
         <header class="section__header">
           
 
-          <h1 class="section__subtitle">Parent Manage</h1>
+          <br><br><h1 class="section__subtitle">Parent Manage</h1>
 
         </header>
         <ul class="project" id="chores">
@@ -57,60 +107,59 @@
 
         </ul>
         <form action="/chores/${kidId}" method="post">
-          <div>
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name">
+          <div id="chore_input">
+            <label class="days" for="name">Chore</label>
+            <input  type="text" name="name" id="name" placeholder="Type the chore here">
           </div>
           <div>
-            <input type="checkbox" name="mon" id="mon">
-            <label for="mon">Monday</label>
+            <label class="days"for="mon">Monday</label>
+            <input type="checkbox" name="mon" id="mon" class="checkme checkbox-custom">
             <br>
            
 
           </div>
 
           <div>
-            <input type="checkbox" name="tue" id="tue">
-            <label for="tue">Tuesday</label>
+            <label class="days" for="tue">Tuesday</label>
+            <input type="checkbox" name="tue" id="tue" class="checkme checkbox-custom">
             <br>
-           
-
+      
           </div>
 
           <div>
-            <input type="checkbox" name="Wed" id="Wed">
-            <label for="wed">Wednesday</label>
-            <br>
-           
-
-          </div>
-          <div>
-            <input type="checkbox" name="thu" id="thu">
-            <label for="thu">Thursday</label>
+            <label class="days" for="wed">Wednesday</label>
+            <input type="checkbox" name="Wed" id="Wed" class="checkme checkbox-custom">           
             <br>
            
 
           </div>
           <div>
-            <input type="checkbox" name="fri" id="fri">
-            <label for="fri">Friday</label>
+            <label class="days" for="thu">Thursday</label>
+            <input type="checkbox" name="thu" id="thu" class="checkme checkbox-custom">           
             <br>
            
 
           </div>
           <div>
-            <input type="checkbox" name="sat" id="sat">
-            <label for="fri">Saturday</label>
+            <label class="days" for="fri">Friday</label>
+            <input type="checkbox" name="fri" id="fri" class="checkme checkbox-custom">
             <br>
            
 
           </div>
           <div>
-            <input type="checkbox" name="sun" id="sun">
-            <label for="sun">Sunday</label>
+            <label class="days" for="fri">Saturday</label>
+            <input type="checkbox" name="sat" id="sat" class="checkme checkbox-custom">
             <br>
            
-            <button class="add-chore">Add</button>
+
+          </div>
+          <div>
+            <label class="days" for="sun">Sunday</label>
+            <input type="checkbox" name="sun" id="sun" class="checkme checkbox-custom circular"> 
+            <br>
+           
+            <button class="btn add-chore">Add</button>
             
           </div>
 
@@ -134,6 +183,7 @@
           <div id="display-name">
 
           </div>
+
         </div>
         <div id="points">
 

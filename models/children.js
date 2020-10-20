@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Child.belongsTo(models.Parent)
       Child.hasMany(models.Chore)
+      Child.hasMany(models.Point)
     }
   };
   Child.init({

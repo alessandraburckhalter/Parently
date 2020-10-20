@@ -3,9 +3,16 @@ const router = express.Router();
 const db = require('../models')
 const bcrypt = require('bcrypt')
 
+function checkAuth(req, res, next) {
+    if (req.session.child){
+        next();
+    }else{
+        res.redirect('/child')
+    }
+}
 
 //login
-router.get('/', (req, res) => {
+router.get('/', checkAuth, (req, res) => {
     res.render('child-dock', {
         locals: {
             error: null,

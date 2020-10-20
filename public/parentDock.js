@@ -3,6 +3,22 @@
 
 
 
+function displayPointsDashBoard(data){
+
+  const html = `
+  <ul class="statistics">
+            <li class="statistics__entry">
+              <p class="statistics__entry-description" >Current Points</p>
+              <span class="statistics__entry-quantity">${data}</span>
+            </li>
+  </ul>`;
+            const renderPoints = document.getElementById('points')
+            renderPoints.innerHTML = html
+            return html
+            
+  
+} 
+
 function getChore(chore) {
   const html = `
     <li class="project__item">
@@ -10,6 +26,7 @@ function getChore(chore) {
               <h4 class="task">${chore.name}</h4>
               </button>
               <button class="edit" data-id="${chore.id}"> Edit </button>
+              <button class="delete" data-id="${chore.id}"> Delete </button>
               <form action="/chores/${chore.id}" method="post" style="display:none;" id="form-edit-${chore.id}">
           <div>
             <label class="days" for="name">Name</label>
@@ -72,12 +89,15 @@ function getChore(chore) {
   return html
 }
 
-const id = new URLSearchParams(document.location.search).get("kid")
+const CHILD_ID = new URLSearchParams(document.location.search).get("kid")
 
 console.log('Hello World')
 
 // Make GET request to map over array of Chores
-axios.get(`/api/child/${id}/chores`)
+updateChores();
+
+function updateChores(){
+  axios.get(`/api/child/${CHILD_ID}/chores`)
   .then((response) => {
     // Store array of chores to htmlArray
     const htmlArray = response.data.map((chore) => {
@@ -87,6 +107,7 @@ axios.get(`/api/child/${id}/chores`)
     const choreId = document.querySelector('#chores')
     choreId.innerHTML = htmlArray.join('')
   })
+}
 
 
 // Create function to display first name and last name
@@ -101,9 +122,30 @@ function displayName(user) {
   return html
 }
 
+//Create a Prize Save and Edit Button
+//todo Display Prize 
+function displayPrize(){
+  const html = `
+  <form action="/chores/${chore.id}" method="post" style="display:none;" id="form-edit-${chore.id}">
+
+  <label for="name">30 Points</label>
+  <input type="text" name="name" id="name" value="">
+  <label for="name">40 Points</label>
+  <input type="text" name="name" id="name" value="">
+  <label for="name">50 Points</label>
+  <input type="text" name="name" id="name" value="">
+  <button class="editPrize"> Edit </button>
+  <button class="savePrize"> Save </button>
+`;
+const display = document.getElementById('display-prize')
+display.innerHTML = html
+return html
+}
+//todo Display Prize 
+displayPrize();
 // GET displayName function and render onto HTML
   // GET from API route child with the signed in child id ${id}
-axios.get(`/api/child/${id}`)
+axios.get(`/api/child/${CHILD_ID}`)
   .then((response) => {
     // store data from api/child route into response.data
     console.log(response.data)
@@ -111,6 +153,12 @@ axios.get(`/api/child/${id}`)
     return displayName(response.data)
   });
 
+  //Get Points
+  axios.get(`/api/child/${CHILD_ID}/point`)
+  .then((data) => {
+    console.log(data)
+    return displayPointsDashBoard(data.data)
+  })
 
 
 
@@ -127,6 +175,20 @@ document.addEventListener('click', (e) => {
     console.log(editForm)
     //style display block to display list on click
     editForm.style.display = "block";
+  }
+  if (e.target.classList.contains('delete')) {
+    e.preventDefault()
+    const id = e.target.dataset.id;
+
+    
+    axios.delete(`/api/chore/${id}`, {
+    }).then((res) => {
+      console.log('Delete item')
+      updateChores();
+      })
+    .catch((error) => {
+      console.log('Delete did not work')
+    })
   }
   // if save button is clicked
   if (e.target.classList.contains('save-chore')){
@@ -151,7 +213,7 @@ document.addEventListener('click', (e) => {
     })
     // when complete get updated list of chores
     .then((response) => {
-      axios.get(`/api/child/${id}/chores`)
+      axios.get(`/api/child/${CHILD_ID}/chores`)
   .then((response) => {
     const htmlArray = response.data.map((chore) => {
       return getChore(chore)
@@ -165,3 +227,6 @@ document.addEventListener('click', (e) => {
     })
   }
 })
+
+
+

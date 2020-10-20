@@ -3,6 +3,22 @@
 
 
 
+function displayPointsDashBoard(data){
+
+  const html = `
+  <ul class="statistics">
+            <li class="statistics__entry">
+              <p class="statistics__entry-description" >Current Points</p>
+              <span class="statistics__entry-quantity">${data}</span>
+            </li>
+  </ul>`;
+            const renderPoints = document.getElementById('points')
+            renderPoints.innerHTML = html
+            return html
+            
+  
+} 
+
 function getChore(chore) {
   const html = `
     <li class="project__item">
@@ -10,6 +26,7 @@ function getChore(chore) {
               <h4 class="task">${chore.name}</h4>
               </button>
               <button class="edit" data-id="${chore.id}"> Edit </button>
+              <button class="delete" data-id="${chore.id}"> Delete </button>
               <form action="/chores/${chore.id}" method="post" style="display:none;" id="form-edit-${chore.id}">
           <div>
             <label for="name">Name</label>
@@ -77,7 +94,10 @@ const id = new URLSearchParams(document.location.search).get("kid")
 console.log('Hello World')
 
 // Make GET request to map over array of Chores
-axios.get(`/api/child/${id}/chores`)
+updateChores();
+
+function updateChores(){
+  axios.get(`/api/child/${id}/chores`)
   .then((response) => {
     // Store array of chores to htmlArray
     const htmlArray = response.data.map((chore) => {
@@ -87,6 +107,7 @@ axios.get(`/api/child/${id}/chores`)
     const choreId = document.querySelector('#chores')
     choreId.innerHTML = htmlArray.join('')
   })
+}
 
 
 // Create function to display first name and last name
@@ -110,6 +131,12 @@ axios.get(`/api/child/${id}`)
     return displayName(response.data)
   });
 
+  //Get Points
+  axios.get(`/api/child/${id}/point`)
+  .then((data) => {
+    console.log(data)
+    return displayPointsDashBoard(data.data)
+  })
 
 
 
@@ -126,6 +153,20 @@ document.addEventListener('click', (e) => {
     console.log(editForm)
     //style display block to display list on click
     editForm.style.display = "block";
+  }
+  if (e.target.classList.contains('delete')) {
+    e.preventDefault()
+    const id = e.target.dataset.id;
+
+    
+    axios.delete(`/api/chore/${id}`, {
+    }).then((res) => {
+      console.log('Delete item')
+      updateChores();
+      })
+    .catch((error) => {
+      console.log('Delete did not work')
+    })
   }
   // if save button is clicked
   if (e.target.classList.contains('save-chore')){
@@ -164,3 +205,6 @@ document.addEventListener('click', (e) => {
     })
   }
 })
+
+
+

@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
 const es6Renderer = require('express-es6-template-engine')
 const bcrypt = require('bcrypt')
+
 const registerRouter = require('./routes/register')
 const loginRouter = require('./routes/login')
 const apiRouter = require('./routes/api')
@@ -19,6 +20,7 @@ const aboutRouter = require('./routes/aboutus')
 const choreRouter = require('./routes/chores')
 const overviewRouter = require('./routes/overview')
 const manageRouter = require('./routes/manage')
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -32,9 +34,9 @@ app.use(
     store: store,
   }))
   
-  store.sync();
-  //middleware to show logins
-  app.use((req, res, next) => {
+store.sync();
+//middleware to show logins
+app.use((req, res, next) => {
   console.log('===== USER =====')
   console.log(req.session.user);
   console.log('========')
@@ -58,6 +60,17 @@ app.get('/', (req,res) => {
   })
 })
 
+//Check Auth
+function checkAuth(req, res, next) {
+  if (req.session.parent) {
+    next();
+  } else {
+    console.log('nope')
+    res.redirect('/login')
+  }
+}
+
+
 // Render Routes
 app.use('/register', registerRouter)
 app.use('/login', loginRouter)
@@ -70,21 +83,12 @@ app.use('/chores', choreRouter)
 app.use('/overview', overviewRouter)
 app.use('/manage', manageRouter)
 
-//Check Auth
-function checkAuth(req, res, next) {
-  if (req.session.parent) {
-    next();
-  } else {
-    console.log('nope')
-    res.redirect('/login')
-  }
-}
 
-
-
-
-
-
+// Runs Server
+app.listen(3000, function () {
+  console.log('Todo List API is now listening on port 3000 ...');
+});
+module.exports = app;
 
 
 
@@ -123,7 +127,7 @@ function checkAuth(req, res, next) {
 // });
 
 
-app.listen(3000, function () {
-  console.log('Todo List API is now listening on port 3000 ...');
-});
-module.exports = app;
+
+
+
+

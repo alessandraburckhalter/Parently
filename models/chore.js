@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Chore.belongsTo(models.Child)
+      Chore.hasMany(models.Point)
     }
   };
   Chore.init({

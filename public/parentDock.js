@@ -29,59 +29,59 @@ function getChore(chore) {
               <button class="delete" data-id="${chore.id}"> Delete </button>
               <form action="/chores/${chore.id}" method="post" style="display:none;" id="form-edit-${chore.id}">
           <div>
-            <label for="name">Name</label>
+            <label class="days" for="name">Name</label>
             <input type="text" name="name" id="name" value="${chore.name}">
           </div>
           <div>
-            <input type="checkbox" name="mon" id="mon" ${chore.mon?'checked':""}>
-            <label for="mon">Monday</label>
+            <input type="checkbox" class="checkme checkbox-custom" name="mon" id="mon" ${chore.mon?'checked':""}>
+            <label class="days" for="mon">Monday</label>
             <br>
            
 
           </div>
 
           <div>
-            <input type="checkbox" name="tue" id="tue" ${chore.tue?'checked':""}>
-            <label for="tue">Tuesday</label>
+            <input type="checkbox" class="checkme checkbox-custom" name="tue" id="tue" ${chore.tue?'checked':""}>
+            <label class="days" for="tue">Tuesday</label>
             <br>
            
 
           </div>
 
           <div>
-            <input type="checkbox" name="wed" id="Wed" ${chore.wed?'checked':""}>
-            <label for="wed">Wednesday</label>
+            <input class="checkme checkbox-custom" type="checkbox" name="wed" id="Wed" ${chore.wed?'checked':""}>
+            <label class="days" for="wed">Wednesday</label>
             <br>
            
 
           </div>
           <div>
-            <input type="checkbox" name="thu" id="thu" ${chore.thu?'checked':""}>
-            <label for="thu">Thursday</label>
+            <input class="checkme checkbox-custom" type="checkbox" name="thu" id="thu" ${chore.thu?'checked':""}>
+            <label class="days" for="thu">Thursday</label>
             <br>
            
 
           </div>
           <div>
-            <input type="checkbox" name="fri" id="fri" ${chore.fri?'checked':""}>
-            <label for="fri">Friday</label>
+            <input class="checkme checkbox-custom" type="checkbox" name="fri" id="fri" ${chore.fri?'checked':""}>
+            <label class="days" for="fri">Friday</label>
             <br>
            
 
           </div>
           <div>
-            <input type="checkbox" name="sat" id="sat" ${chore.sat?'checked':""}>
-            <label for="fri">Saturday</label>
+            <input class="checkme checkbox-custom" type="checkbox" name="sat" id="sat" ${chore.sat?'checked':""}>
+            <label class="days" for="fri">Saturday</label>
             <br>
            
 
           </div>
           <div>
-            <input type="checkbox" name="sun" id="sun" ${chore.sun?'checked':""}>
-            <label for="sun">Sunday</label>
+            <input class="checkme checkbox-custom" type="checkbox" name="sun" id="sun" ${chore.sun?'checked':""}>
+            <label class="days" for="sun">Sunday</label>
             <br>
            
-            <button class="save-chore" type="submit" data-id="${chore.id}">Save</button>
+            <button class="btn add-chore" type="submit" data-id="${chore.id}">Save</button>
             
           </div>
               </form>

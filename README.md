@@ -54,7 +54,7 @@ Parently was created to help children and parents manage household chores. It is
 <br>
 
 ## ⚙ How to run 
-
+Parently is deployed on Heroku. You can see a demo by clicking [HERE](https://best-parently.herokuapp.com).
 <br>
 <br>
 

@@ -20,14 +20,15 @@
 ## :hammer_and_wrench: Used Technologies 
 
 * JavaScript
-* JQuery
 * HTML
 * CSS
 * Bootstrap
 * Font Awesome
 * API
 * Postgres
-* Express
+* Node.js
+* Axios
+
 <br>
 <br>
 

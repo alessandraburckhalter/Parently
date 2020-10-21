@@ -7,30 +7,27 @@
 <br>
 
 ## :heavy_check_mark: Task
-
-
+Your task is to build something awesome! You'll be using the backend (and front-end) skills you've developed over the last couple of months. Implement a simple Responsive Web Design that works on Chrome on OSX, iOS devices, and Android devices at 360px, 768px, and 1200+ px wide. Use Express for your HTTP framework, a view engine for your templating, PostgreSQL for your database. Create at least 3 tables, with Model classes as is appropriate. Make sure that at least 2 of the tables are related (via foreign keys).
 <br>
 <br>
 
 ## :book: About the project
-
+Parently was created to help children and parents manage household chores. It is recommended for children over 8 years old. Parents can create an account for as many children as they want and set chores for each child. Children can access their online accounts, view the day's schores and mark them as completed.
 <br>
 <br>
 
 ## :hammer_and_wrench: Used Technologies 
-
 * JavaScript
-* JQuery
 * HTML
 * CSS
 * Bootstrap
 * Font Awesome
 * API
 * Postgres
-* Express
+* Node.js
+* Axios
 <br>
 <br>
-
 
 ## 🖥 Preview
 #### :point_down: Home Page
@@ -62,8 +59,15 @@
 <br>
 
 ## :heavy_exclamation_mark: Challenges
+Connecting the data with specific routes, obtaining the current day to display on the chores page and mark the chores as done in the database were the biggest challenges for us.
+<br>
+<br>
 
-
+## :soon: Next Steps
+* Give the user the ability to upload their own profile photos.
+* Give parents the ability to define prizes and points ranges.
+* Send the login information to the user by email once signed up.
+* Send alerts to the parents once the child mark a chore as done.
 <br>
 <br>
 

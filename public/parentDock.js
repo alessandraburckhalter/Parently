@@ -123,6 +123,7 @@ function displayName(user) {
 }
 
 //Create a Prize Save and Edit Button
+
 function displayPrize(){
   const html = `
   
@@ -143,6 +144,7 @@ return html
 }
 //todo Display Prize 
 displayPrize();
+
 
 
 

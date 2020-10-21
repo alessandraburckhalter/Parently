@@ -129,13 +129,13 @@ function displayPrize(){
   
   <form action="" method="post">
   <label for="name">30 Points</label>
-  <input type="text" name="name" id="name" value="">
+  <input class="points" type="text" name="name" id="name" value="">
   <label for="name">40 Points</label>
-  <input type="text" name="name" id="name" value="">
+  <input class="points" type="text" name="name" id="name" value="">
   <label for="name">50 Points</label>
-  <input type="text" name="name" id="name" value="">
-  <button class="edit-prize"> Edit </button>
-  <button class="save-prize"> Save </button>
+  <input class="points" type="text" name="name" id="name" value="">
+  <button class="days add-chore edit-prize"> Edit </button>
+  <button class=" days add-chore save-prize"> Save </button>
   </form>
 `;
 const display = document.getElementById('display-prize')

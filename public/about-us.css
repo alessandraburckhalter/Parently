@@ -40,6 +40,7 @@ body {
     font-family:'Cinzel', serif !important;
     font-size: 15px;
     font-weight: 600;
+    text-align: center;
   }
   
   .nav-link:hover{
@@ -48,17 +49,24 @@ body {
     border: solid 1px #30bf8a;
   }
   
-  .navbar-toggler img{
+  .navbar-toggler svg{
     width: 35px;
+    outline: none !important;
+    text-decoration: none !important;
   }
 
   .nav-item{
     margin-bottom: 1rem;
       }
+/* 
+.navbar{
+     order: 2;
+      } */
   
   #navbarToggle {
     outline: none !important;
     margin: 5px;
+    text-decoration: none !important;
   }
 
 /* any anchor tag */
@@ -176,7 +184,7 @@ section {
 
 .card .btn:hover {
     transform: translateY(-2px);
-    box-shadow: .5rem .5rem 2rem rgba(0.0.0.2);
+    box-shadow: .5rem .5rem 2rem rgb(70, 69, 69);
 }
 
 .card .btn:active {

@@ -95,20 +95,11 @@ p {
     h1 {
       font-size: 2rem;
     }
-  
+  /* KID NAME */
     h2 {
       font-size: 1.85rem;
     }
-  
-    h3 {
-      font-size: 1.7rem;
-    }
-  
-    h4,
-    h5,
-    h6 {
-      font-size: 1.55rem;
-    }
+
   }
   
   @media (max-width: 1200px) {
@@ -123,10 +114,8 @@ p {
     h3 {
       font-size: 1.4rem;
     }
-  
-    h4,
-    h5,
-    h6 {
+  /* CHORE NAME */
+    h4{
       font-size: 1.35rem;
     }
   }
@@ -140,10 +129,8 @@ p {
     h3 {
       font-size: 1.4rem;
     }
-  
-    h4,
-    h5,
-    h6 {
+  /* CHORE NAME */
+    h4{
       font-size: 1.2rem;
     }
   }
@@ -413,7 +400,7 @@ margin-bottom: 1rem;
 .nav-link-1:hover{
     color: #30bf8a;
     background-color: white;
-
+    text-decoration: none !important;
 }
 
 .nav-link{
@@ -445,13 +432,9 @@ nav{
     border-radius: 20px;
     padding: 10px 20px;
     text-decoration: none !important;
+    text-align: center;
 }
-.nav-link-2{
-    
-    border-radius: 20px;
-    padding: 10px 20px;
-    text-decoration: none !important;
-}
+
   
   /* Project */
   

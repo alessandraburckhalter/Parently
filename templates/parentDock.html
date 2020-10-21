@@ -24,7 +24,7 @@
     <!--  Show this only on mobile to medium screens  -->
       <a class="navbar-brand d-md-none " href="#"><img src="/images/logo3.png" alt=""></a>
     
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+      <button class=" btn navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
         <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-justify" fill="#fff" xmlns="http://www.w3.org/2000/svg">              <path fill-rule="evenodd" d="M2 12.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/></svg>
       </button>
       
@@ -43,7 +43,7 @@
         
         
     <!--   Show this only lg screens and up   -->
-        <a class="navbar-brand d-none d-sm-block nav justify-content-center" href="#"><img class="img-responsive" src="/images/logo3.png" alt=""></a>
+        <a class="navbar-brand d-none d-md-block nav justify-content-center" href="#"><img class="img-responsive" src="/images/logo3.png" alt=""></a>
         
         <ul class="navbar-nav navbar-center nav justify-content-center">
           <li class="nav-item px-5 ">
@@ -100,17 +100,17 @@
           <br><br><h1 class="section__subtitle">Parent Manage</h1>
 
         </header>
+        <!-- TAKES INPUTS THAT ARE ADDED FROM CHORES -->
         <ul class="project" id="chores">
 
-
-
-
         </ul>
+<!-- TAKES CHORE INPUT  -->
         <form action="/chores/${kidId}" method="post">
           <div id="chore_input">
             <label class="days" for="name">Chore</label>
             <input  type="text" name="name" id="name" placeholder="Type the chore here">
           </div>
+          <!-- DAYS TO ASSIGN CHORES -->
           <div>
             <label class="days"for="mon">Monday</label>
             <input type="checkbox" name="mon" id="mon" class="checkme checkbox-custom">
@@ -183,10 +183,12 @@
           <div id="display-name">
 
           </div>
+
           
           <div id="display-prize">
 
           </div>
+
 
         </div>
         <div id="points">

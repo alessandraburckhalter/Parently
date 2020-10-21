@@ -75,7 +75,7 @@ axios.get(`/api/child/${id}`)
 
 // create function to display user name
 function displayName(user) {
-  const html = `
+  const html = `<br><br>
   <h1>${user.first_name} ${user.last_name}</h1>
   `;
   const display = document.getElementById('display-name')

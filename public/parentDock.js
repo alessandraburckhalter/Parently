@@ -124,25 +124,25 @@ function displayName(user) {
 
 //Create a Prize Save and Edit Button
 //todo Display Prize 
-function displayPrize(){
-  const html = `
-  <form action="/chores/${chore.id}" method="post" style="display:none;" id="form-edit-${chore.id}">
+// function displayPrize(){
+//   const html = `
+//   <form action="/chores/${chore.id}" method="post" style="display:none;" id="form-edit-${chore.id}">
 
-  <label for="name">30 Points</label>
-  <input type="text" name="name" id="name" value="">
-  <label for="name">40 Points</label>
-  <input type="text" name="name" id="name" value="">
-  <label for="name">50 Points</label>
-  <input type="text" name="name" id="name" value="">
-  <button class="editPrize"> Edit </button>
-  <button class="savePrize"> Save </button>
-`;
-const display = document.getElementById('display-prize')
-display.innerHTML = html
-return html
-}
+//   <label for="name">30 Points</label>
+//   <input type="text" name="name" id="name" value="">
+//   <label for="name">40 Points</label>
+//   <input type="text" name="name" id="name" value="">
+//   <label for="name">50 Points</label>
+//   <input type="text" name="name" id="name" value="">
+//   <button class="editPrize"> Edit </button>
+//   <button class="savePrize"> Save </button>
+// `;
+// const display = document.getElementById('display-prize')
+// display.innerHTML = html
+// return html
+// }
 //todo Display Prize 
-displayPrize();
+// displayPrize();
 // GET displayName function and render onto HTML
   // GET from API route child with the signed in child id ${id}
 axios.get(`/api/child/${CHILD_ID}`)

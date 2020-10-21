@@ -86,7 +86,7 @@
     left: 50%;
     transform: translateX(-50%);
     border-radius: 2rem;
-    margin: -1rem;
+    margin: 1rem;
 }
 
 /* childs name */

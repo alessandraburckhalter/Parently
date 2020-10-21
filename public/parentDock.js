@@ -25,8 +25,8 @@ function getChore(chore) {
               <button class="project__link focus--box-shadow">
               <h4 class="task">${chore.name}</h4>
               </button>
-              <button class="edit" data-id="${chore.id}"> Edit </button>
-              <button class="delete" data-id="${chore.id}"> Delete </button>
+              <button class="edit days add-chore" data-id="${chore.id}"> Edit </button>
+              <button class="delete days add-chore" data-id="${chore.id}"> Delete </button>
               <form  style="display:none;" id="form-edit-${chore.id}">
           <div>
             <label class="days" for="name">Name</label>
@@ -81,7 +81,7 @@ function getChore(chore) {
             <label class="days" for="sun">Sunday</label>
             <br>
            
-            <button class="btn save-chore" type="submit" data-id="${chore.id}">Save</button>
+            <button class="btn days add-chore save-chore" type="submit" data-id="${chore.id}">Save</button>
             
           </div>
               </form>

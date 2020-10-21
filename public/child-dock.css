@@ -186,6 +186,13 @@ p {
     }
   }
   
+  .edit{
+    padding: 0.85rem;
+    background-color: white;
+    border: 0;
+    color: var(--dune);
+    cursor: pointer;
+  }
   .days{
     color: white;  
     font-size: 1.2rem;
@@ -204,16 +211,18 @@ p {
   }
   .add-chore{
     
-    background-color: white;
-    color: #30bf8a;
-    border-radius: 30px;
+    background-color: #f8f8f8;
+    color: green;
+    border-radius: 15px;
+    margin-top: 8px;
+    margin-right: 5px;
     
   }
   .add-chore:hover{
-    text-decoration: underline;
-    color: #ffffff;
-    background: none;
-    border: 3px solid white;
+    
+    background-color:#30bf8a;
+    color: white;
+    border: solid 1px white;
   }
 
   #name{
@@ -223,6 +232,13 @@ p {
     text-align:center ;
     text-decoration: none;
     outline: none;
+  }
+
+  .points{
+    font-family:'Cinzel', serif !important;
+  }
+  .points label{
+    font-family:'Cinzel', serif !important;
   }
 
   /* Section */

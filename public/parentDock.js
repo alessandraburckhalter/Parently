@@ -27,7 +27,7 @@ function getChore(chore) {
               </button>
               <button class="edit" data-id="${chore.id}"> Edit </button>
               <button class="delete" data-id="${chore.id}"> Delete </button>
-              <form action="/chores/${chore.id}" method="post" style="display:none;" id="form-edit-${chore.id}">
+              <form  style="display:none;" id="form-edit-${chore.id}">
           <div>
             <label class="days" for="name">Name</label>
             <input type="text" name="name" id="name" value="${chore.name}">
@@ -81,7 +81,7 @@ function getChore(chore) {
             <label class="days" for="sun">Sunday</label>
             <br>
            
-            <button class="btn add-chore" type="submit" data-id="${chore.id}">Save</button>
+            <button class="btn save-chore" type="submit" data-id="${chore.id}">Save</button>
             
           </div>
               </form>
@@ -151,7 +151,7 @@ displayPrize();
 axios.get(`/api/child/${CHILD_ID}`)
   .then((response) => {
     // store data from api/child route into response.data
-    console.log(response.data)
+    
     // run function with parameter response.data to access first name and last name
     return displayName(response.data)
   });
@@ -175,7 +175,7 @@ document.addEventListener('click', (e) => {
     const id = e.target.dataset.id;
     // grab element by form with specific chore id
     const editForm = document.getElementById(`form-edit-${id}`)
-    console.log(editForm)
+    
     //style display block to display list on click
     editForm.style.display = "block";
   }
@@ -186,21 +186,22 @@ document.addEventListener('click', (e) => {
     
     axios.delete(`/api/chore/${id}`, {
     }).then((res) => {
-      console.log('Delete item')
+      
       updateChores();
       })
     .catch((error) => {
       console.log('Delete did not work')
     })
   }
-  if(e.target.classList.contains(''))
+  
   // if save button is clicked
   if (e.target.classList.contains('save-chore')){
     e.preventDefault()
+    
     // Line 67: Create data-id for storing 
     const id = e.target.dataset.id;
     const editForm = document.getElementById(`form-edit-${id}`)
-    console.log(editForm)
+    
     // style display to hide list completely
     editForm.style.display = "none"
     // PUT to create edit chore

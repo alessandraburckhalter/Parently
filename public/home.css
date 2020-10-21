@@ -53,18 +53,37 @@ body{
     position: relative;
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(to right, #48baf9,#30bf8a);
+    
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 100px;
-    margin-top: auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+}
+
+.pic{
     flex-wrap: wrap;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+@media (max-width: 1200px){
+    .sec{
+        flex-wrap: wrap;
+    }
+}
+@media (max-width: 550px){
+    .kids{
+      max-width:  250%;
+    }
 }
 
 .content {
     position: relative;
-    max-width: 600px;
+    width: 1fr;
 }
 
 .content h1 {
@@ -103,12 +122,12 @@ body{
 
 /* kids image */
 .kids {
-    display: block;
-    max-width: 100%;
+    display: flex;
     height: auto;
     position: relative;
-    width: 100%;
-    float: right;
+    width: 1fr;
+    
+    margin: 4rem 0;
 }
 
 /* svg */

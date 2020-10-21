@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Portfolio dashboard</title>
+  <title>Parently</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -34,7 +34,7 @@
         <ul class="navbar-nav navbar-center nav justify-content-center">
           
           <li class="nav-item px-5">
-            <a class="nav-link nav-link-1" href="/login">Parent Login</a>
+            <a class="nav-link nav-link-1" href="/overview">Overview</a>
           </li>
           <li class="nav-item px-5">
             <a class="nav-link nav-link-1" href="/child">Child Login</a>
@@ -43,11 +43,11 @@
         
         
     <!--   Show this only lg screens and up   -->
-        <a class="navbar-brand d-none d-md-block nav justify-content-center" href="#"><img class="img-responsive" src="/images/logo3.png" alt=""></a>
+        <a class="navbar-brand d-none d-md-block nav justify-content-center" href="/"><img class="img-responsive" src="/images/logo3.png" alt=""></a>
         
         <ul class="navbar-nav navbar-center nav justify-content-center">
           <li class="nav-item px-5 ">
-            <a class="nav-link nav-link-1" href="/register">Sign Up</a>
+            <a class="nav-link nav-link-1" href="/logout">Sign Out</a>
           </li>
           <li class="nav-item px-5 ">
             <a class="nav-link nav-link-1" href="/about-us">Creators</a>
@@ -88,6 +88,17 @@
       </ul>
     </div>
   </nav> -->
+
+  <div class="container ">
+    <div class="row ">
+      <div class="col-md-12 d-flex justify-content-center mt-4 mb-3 main-title">
+        <h1 >Parent Management</h1>
+
+      </div>
+
+    </div>
+
+  </div>
   <div class="wrapper" >
 
     <main class="main">
@@ -95,9 +106,9 @@
       <section class="section container">
 
         <header class="section__header">
-          
+        
 
-          <br><br><h1 class="section__subtitle">Parent Manage</h1>
+         
 
         </header>
         <!-- TAKES INPUTS THAT ARE ADDED FROM CHORES -->
@@ -107,7 +118,7 @@
 <!-- TAKES CHORE INPUT  -->
         <form action="/chores/${kidId}" method="post">
           <div id="chore_input">
-            <label class="days" for="name">Chore</label>
+            <label class="days" for="name">List of Chores</label>
             <input  type="text" name="name" id="name" placeholder="Type the chore here">
           </div>
           <!-- DAYS TO ASSIGN CHORES -->
@@ -159,7 +170,7 @@
             <input type="checkbox" name="sun" id="sun" class="checkme checkbox-custom circular"> 
             <br>
            
-            <button class="btn add-chore">Add</button>
+            <button class="btn add-chore">Add chore</button>
             
           </div>
 

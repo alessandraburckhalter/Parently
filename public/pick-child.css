@@ -86,7 +86,7 @@
     left: 50%;
     transform: translateX(-50%);
     border-radius: 2rem;
-    margin: 1rem;
+    margin: -1rem;
 }
 
 /* childs name */
@@ -326,9 +326,6 @@
       margin-bottom: 4rem;
     }
   
-    /* .profile-main__setting {
-      max-width: 225px;
-    } */
   }
 
   .slides{
@@ -403,3 +400,6 @@
 section.section.container{
   width: 90%;
 }
+
+/* responsive navbar */
+

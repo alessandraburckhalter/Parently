@@ -27,7 +27,7 @@ function getChore(chore) {
               </button>
               <button class="edit" data-id="${chore.id}"> Edit </button>
               <button class="delete" data-id="${chore.id}"> Delete </button>
-              <form action="/chores/${chore.id}" method="post" style="display:none;" id="form-edit-${chore.id}">
+              <form  style="display:none;" id="form-edit-${chore.id}">
           <div>
             <label class="days" for="name">Name</label>
             <input type="text" name="name" id="name" value="${chore.name}">
@@ -81,7 +81,7 @@ function getChore(chore) {
             <label class="days" for="sun">Sunday</label>
             <br>
            
-            <button class="btn add-chore" type="submit" data-id="${chore.id}">Save</button>
+            <button class="btn save-chore" type="submit" data-id="${chore.id}">Save</button>
             
           </div>
               </form>
@@ -123,32 +123,37 @@ function displayName(user) {
 }
 
 //Create a Prize Save and Edit Button
-//todo Display Prize 
-// function displayPrize(){
-//   const html = `
-//   <form action="/chores/${chore.id}" method="post" style="display:none;" id="form-edit-${chore.id}">
 
-//   <label for="name">30 Points</label>
-//   <input type="text" name="name" id="name" value="">
-//   <label for="name">40 Points</label>
-//   <input type="text" name="name" id="name" value="">
-//   <label for="name">50 Points</label>
-//   <input type="text" name="name" id="name" value="">
-//   <button class="editPrize"> Edit </button>
-//   <button class="savePrize"> Save </button>
-// `;
-// const display = document.getElementById('display-prize')
-// display.innerHTML = html
-// return html
-// }
+function displayPrize(){
+  const html = `
+  
+  <form action="" method="post">
+  <label for="name">30 Points</label>
+  <input type="text" name="name" id="name" value="">
+  <label for="name">40 Points</label>
+  <input type="text" name="name" id="name" value="">
+  <label for="name">50 Points</label>
+  <input type="text" name="name" id="name" value="">
+  <button class="edit-prize"> Edit </button>
+  <button class="save-prize"> Save </button>
+  </form>
+`;
+const display = document.getElementById('display-prize')
+display.innerHTML = html
+return html
+}
 //todo Display Prize 
-// displayPrize();
+displayPrize();
+
+
+
+
 // GET displayName function and render onto HTML
   // GET from API route child with the signed in child id ${id}
 axios.get(`/api/child/${CHILD_ID}`)
   .then((response) => {
     // store data from api/child route into response.data
-    console.log(response.data)
+    
     // run function with parameter response.data to access first name and last name
     return displayName(response.data)
   });
@@ -172,7 +177,7 @@ document.addEventListener('click', (e) => {
     const id = e.target.dataset.id;
     // grab element by form with specific chore id
     const editForm = document.getElementById(`form-edit-${id}`)
-    console.log(editForm)
+    
     //style display block to display list on click
     editForm.style.display = "block";
   }
@@ -183,20 +188,22 @@ document.addEventListener('click', (e) => {
     
     axios.delete(`/api/chore/${id}`, {
     }).then((res) => {
-      console.log('Delete item')
+      
       updateChores();
       })
     .catch((error) => {
       console.log('Delete did not work')
     })
   }
+  
   // if save button is clicked
   if (e.target.classList.contains('save-chore')){
     e.preventDefault()
+    
     // Line 67: Create data-id for storing 
     const id = e.target.dataset.id;
     const editForm = document.getElementById(`form-edit-${id}`)
-    console.log(editForm)
+    
     // style display to hide list completely
     editForm.style.display = "none"
     // PUT to create edit chore

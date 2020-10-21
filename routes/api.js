@@ -1,6 +1,5 @@
 
 var express = require('express');
-const { response } = require('../app');
 var router = express.Router();
 const db = require('../models');
 const point = require('../models/point');

@@ -85,8 +85,8 @@ app.use('/manage', manageRouter)
 
 
 // Runs Server
-app.listen(3000, function () {
-  console.log('Todo List API is now listening on port 3000 ...');
+app.listen(process.env.PORT || 3000, function () {
+  console.log(`App is running on port ${process.env.PORT || 3000}`);
 });
 module.exports = app;
 

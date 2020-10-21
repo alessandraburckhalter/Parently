@@ -47,6 +47,7 @@ body{
     outline: none !important;
     margin: 5px;
     text-decoration: none !important;
+    margin-top: 20px;
   }
 
 .sec {
@@ -59,9 +60,10 @@ body{
     align-items: center;
     padding: 100px;
     padding-bottom: 10px;
-    padding-top: 10px;
-
+    
+    margin-top: -5px;
 }
+
 
 .pic{
     flex-wrap: wrap;

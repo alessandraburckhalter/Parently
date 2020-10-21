@@ -122,19 +122,19 @@ function displayName(user) {
 }
 
 //Create a Prize Save and Edit Button
-//todo Display Prize 
 function displayPrize(){
   const html = `
-  <form action="/chores/${chore.id}" method="post" style="display:none;" id="form-edit-${chore.id}">
-
+  
+  <form action="" method="post">
   <label for="name">30 Points</label>
   <input type="text" name="name" id="name" value="">
   <label for="name">40 Points</label>
   <input type="text" name="name" id="name" value="">
   <label for="name">50 Points</label>
   <input type="text" name="name" id="name" value="">
-  <button class="editPrize"> Edit </button>
-  <button class="savePrize"> Save </button>
+  <button class="edit-prize"> Edit </button>
+  <button class="save-prize"> Save </button>
+  </form>
 `;
 const display = document.getElementById('display-prize')
 display.innerHTML = html
@@ -142,6 +142,9 @@ return html
 }
 //todo Display Prize 
 displayPrize();
+
+
+
 // GET displayName function and render onto HTML
   // GET from API route child with the signed in child id ${id}
 axios.get(`/api/child/${CHILD_ID}`)
@@ -189,6 +192,7 @@ document.addEventListener('click', (e) => {
       console.log('Delete did not work')
     })
   }
+  if(e.target.classList.contains(''))
   // if save button is clicked
   if (e.target.classList.contains('save-chore')){
     e.preventDefault()

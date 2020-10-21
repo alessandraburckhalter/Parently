@@ -68,19 +68,19 @@ function picture(kidPic){
     renderImg.innerHTML = html
     return html
     }
-    axios.get(`https://api.generated.photos/api/v1/faces?api_key=GbmuIOU4qhe-YYINjMwKQQ&age=child&per_page=${Math.floor(Math.random()* 20)}`)
-    .then((response) => {
-      let image = response.data.faces[0].urls[3]['256']
-      let card = document.querySelector('#image')
-      card.innerHTML += (`  <img
-      class="profile-main__photo"
-      src="${image}"
-      alt="Profile photo"
-    />`)
+    // axios.get(`https://api.generated.photos/api/v1/faces?api_key=J_C9-VcbPJmDUutJhxZYzQ&age=child&per_page=${Math.floor(Math.random()* 20)}`)
+    // .then((response) => {
+    //   let image = response.data.faces[0].urls[3]['256']
+    //   let card = document.querySelector('#image')
+    //   card.innerHTML += (`  <img
+    //   class="profile-main__photo"
+    //   src="${image}"
+    //   alt="Profile photo"
+    // />`)
 
-      let kidPic = response.data.faces[0].urls[3]
-      console.log(kidPic)
-      return kidPic
-    })
+    //   let kidPic = response.data.faces[0].urls[3]
+    //   console.log(kidPic)
+    //   return kidPic
+    // })
 
    

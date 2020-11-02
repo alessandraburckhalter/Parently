@@ -9,6 +9,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 body{
     background: linear-gradient(to right, #48baf9,#30bf8a);
 }
@@ -159,7 +163,39 @@ body{
     }
 
     .sec{
+        padding: 60px;
         padding-top: 70px;
         margin-top: 0;
+    }
+
+    .content h1 {
+        font-size: 1.7em;
+    }
+
+    .content p {
+        font-size: 1.3em;
+    }
+}
+
+
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .content p {
+        font-size: 2.5em;
+    }
+
+    .content h1 {
+        font-size: 2.9em;
+        font-weight: 600;
+    }
+
+    .content a {
+        padding: 20px 40px;
+        font-size: 2.3em;
     }
 }

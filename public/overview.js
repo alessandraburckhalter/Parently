@@ -11,10 +11,10 @@ function getKid(kid){
             <a href=" /manage?kid=${kid.id}"
               class="profile-main__setting focus--box-shadow"
               type="button"
-           id = "image" >
+           id = "image" > <img src=${kid.childImage} />.
 
             </a><br>
-            <br>  <a class = "FirstName" href="/manage?kid=${kid.id}">
+            <br>  <a class = "FirstName" href="/manage?kid=${kid.id}"> 
             ${kid.first_name}
             </a>
      </div>
@@ -56,31 +56,31 @@ axios.get('/api/kids')
     kidsId.innerHTML= htmlArray.join('')
 })
 
-function picture(kidPic){
-      const html = `
-      <img
-      class="profile-main__photo"
-      src="${kidPic}"
-      alt="Profile photo"
-    />
-    `
-    const renderImg = document.querySelector('#image')
-    renderImg.innerHTML = html
-    return html
-    }
-    axios.get(`https://api.generated.photos/api/v1/faces?api_key=J_C9-VcbPJmDUutJhxZYzQ&age=child&per_page=${Math.floor(Math.random()* 20)}`)
-    .then((response) => {
-      let image = response.data.faces[0].urls[3]['256']
-      let card = document.querySelector('#image')
-      card.innerHTML += (`  <img
-      class="profile-main__photo"
-      src="${image}"
-      alt="Profile photo"
-    />`)
+// function picture(kidPic){
+//       const html = `
+//       <img
+//       class="profile-main__photo"
+//       src="${kidPic}"
+//       alt="Profile photo"
+//     />
+//     `
+//     const renderImg = document.querySelector('#image')
+//     renderImg.innerHTML = html
+//     return html
+//     }
+//     axios.get(`https://api.generated.photos/api/v1/faces?api_key=J_C9-VcbPJmDUutJhxZYzQ&age=child&per_page=${Math.floor(Math.random()* 20)}`)
+//     .then((response) => {
+//       let image = response.data.faces[0].urls[3]['256']
+//       let card = document.querySelector('#image')
+//       card.innerHTML += (`  <img
+//       class="profile-main__photo"
+//       src="${image}"
+//       alt="Profile photo"
+//     />`)
 
-      let kidPic = response.data.faces[0].urls[3]
-      console.log(kidPic)
-      return kidPic
-    })
+//       let kidPic = response.data.faces[0].urls[3]
+//       console.log(kidPic)
+//       return kidPic
+//     })
 
    

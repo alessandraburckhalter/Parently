@@ -27,6 +27,7 @@ router.get('/parent', function (req, res) {
       res.json(user)
     })
 })
+
 // Get child
 router.get('/child/:id', ((req, res) => {
   db.Child.findByPk(req.params.id)

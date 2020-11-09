@@ -1,8 +1,6 @@
 // Create function to display chores
   // Line 13: Use form action to link chore by id (/chores/${chore.id}) while creating a post method for editing form
 
-
-
 function displayPointsDashBoard(data){
 
   const html = `
@@ -15,8 +13,6 @@ function displayPointsDashBoard(data){
             const renderPoints = document.getElementById('points')
             renderPoints.innerHTML = html
             return html
-            
-  
 } 
 
 function getChore(chore) {
@@ -109,6 +105,25 @@ function updateChores(){
   })
 }
 
+// Create function to display avatar
+function displayAvatar(user) {
+  // store response data in parameter (user)
+  const html = ` <button class="profile-main__setting focus--box-shadow" type="button">
+            <img class="profile-main__photo" src="${user.childImage}" alt="Profile photo" />
+          </button> 
+  `
+  const display = document.getElementById('childImage')
+  display.innerHTML = html
+  return html
+}
+
+function updateAvatar(){
+  axios.get(`/manage/?kid=${CHILD_ID}`)
+  .then((response) => {
+    return displayAvatar(response.data)
+  })
+}
+
 
 // Create function to display first name and last name
 function displayName(user) {
@@ -156,6 +171,12 @@ axios.get(`/api/child/${CHILD_ID}`)
     
     // run function with parameter response.data to access first name and last name
     return displayName(response.data)
+  });
+
+  //Get avatar
+axios.get(`/api/child/${CHILD_ID}`)
+  .then((response) => {
+    return displayAvatar(response.data)
   });
 
   //Get Points

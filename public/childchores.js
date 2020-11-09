@@ -73,6 +73,26 @@ axios.get(`/api/child/${id}`)
 
   })
 
+// Create function to display avatar
+function displayAvatar(user) {
+  // store response data in parameter (user)
+  const html = ` <button class="profile-main__setting focus--box-shadow" type="button">
+            <img class="profile-main__photo" src="${user.childImage}" alt="Profile photo" />
+          </button> 
+
+
+  `;
+  const display = document.getElementById('childImage')
+  display.innerHTML = html
+  return html
+}
+
+//Get avatar
+axios.get(`/api/child/${id}`)
+.then((response) => {
+  return displayAvatar(response.data)
+});
+
 // create function to display user name
 function displayName(user) {
   const html = `<br><br>

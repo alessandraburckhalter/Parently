@@ -11,7 +11,7 @@
     "axios": "^0.20.0",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
-    "connect-session-sequelize": "^7.0.3",
+    "connect-session-sequelize": "^7.0.4",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
@@ -20,6 +20,7 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
+    "multer": "^1.4.2",
     "nodemon": "^2.0.5",
     "pg": "^8.4.1",
     "sequelize": "^6.3.5"
@@ -27,7 +28,7 @@
   "devDependencies": {
     "sequelize-cli": "^6.2.0"
   },
-  "description": "",
+  "description": "<p align=\"center\"> <img  alt=\"Screen Shot 2020-10-02 at 9 41 04 AM\" src=\"https://user-images.githubusercontent.com/68092946/96671832-c9353f00-1330-11eb-802a-061cc144f092.png\"></p> <p align=\"center\"> <img src=\"https://img.shields.io/github/issues/alessandraburckhalter/Full-Stack-Project?color=%2330bf8a\"> <img src=\"https://img.shields.io/github/forks/alessandraburckhalter/Full-Stack-Project?color=%2330bf8a\"> <img src=\"https://img.shields.io/github/stars/alessandraburckhalter/Full-Stack-Project?color=%2330bf8a\"> <img src=\"https://img.shields.io/github/license/alessandraburckhalter/Full-Stack-Project?color=%2330bf8a\"></p>",
   "main": "app.js",
   "repository": {
     "type": "git",

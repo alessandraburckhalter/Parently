@@ -45,6 +45,7 @@ app.use((req, res, next) => {
   
 // view engine setup
 app.use(express.static('./public'));
+app.use('/uploads', express.static('uploads'));
 
 app.engine('html', es6Renderer); // use es6renderer for html view templates
 app.set('views', 'templates'); // look in the 'templates' folder for view templates

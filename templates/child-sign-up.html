@@ -73,7 +73,7 @@
           <div class="card-body">
             <h5 class="card-title text-center">Child Sign Up</h5>
 
-            <form class="form-signin" method="post">
+            <form class="form-signin" method="post" enctype="multipart/form-data" >
               <div class="form-label-group">
                 <input type="text" id="firstname" name="first_name" class="form-control" placeholder="First Name" required autofocus>
               </div>
@@ -87,9 +87,10 @@
               <div class="form-label-group">
                 <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
               </div>
-              <!-- <div class="form-label-group">
-                <input type="password" id="retype-password" class="form-control" placeholder="retype-password" required>
-              </div> -->
+
+              <div class="form-label-group">
+                <input type="file" name="childImage" accept="image/*"/>
+              </div>
 
 
               <div class="custom-control custom-checkbox mb-3">

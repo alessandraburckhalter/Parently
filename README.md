@@ -36,6 +36,19 @@ Parently was created to help children and parents manage household chores. It is
 
 ## ⚙ How to run 
 Parently is deployed on Heroku. You can see a demo by clicking [HERE](https://best-parently.herokuapp.com).
+<br><br>
+If you don’t feel like creating an account, but still want to see the features, please use the login information below.
+<br><br>
+**Parent login**<br>
+**Email:** test@test.com<br>
+**Password:** 12345<br>
+<br>
+**Children login**<br>
+**Username:** burckhalter1<br>
+**Password:** 12345<br>
+<br>
+**Username:** burckhalter2<br>
+**Password:** 12345<br>
 <br>
 <br>
 
@@ -45,10 +58,10 @@ Connecting the data with specific routes, obtaining the current day to display o
 <br>
 
 ## :soon: Next Steps
-* Give the user the ability to upload their own profile photos.
-* Give parents the ability to define prizes and points ranges.
+* ~~Give the user the ability to upload their own profile photo.~~:white_check_mark:
+* Give parents the ability to define prizes and point ranges.
 * Send the login information to the user by email once signed up.
-* Send alerts to the parents once the child mark a chore as done.
+* Send alerts to the parents once the child marks a chore as done.
 <br>
 <br>
 
